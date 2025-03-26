@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Profesional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Mi<span style="color: var(--accent-color);">Portfolio</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Diseñando <span style="color: var(--accent-color);">experiencias</span> digitales únicas</h1>
+                <p>Desarrollador Front-end especializado en crear interfaces modernas, intuitivas y de alto rendimiento para websites y aplicaciones.</p>
+                <a href="#portfolio" class="btn">Ver proyectos</a>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+            <img src="/api/placeholder/600/500" alt="Hero Image" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Sección About -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Sobre mí</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Desarrollador Front-end & Diseñador UI/UX</h3>
+                    <p>Soy un desarrollador front-end apasionado por crear experiencias digitales atractivas y funcionales. Con más de 5 años de experiencia en el sector, me especializo en transformar ideas y diseños en código limpio y eficiente.</p>
+                    <p>Mi enfoque se basa en la construcción de interfaces de usuario intuitivas y responsivas, utilizando las últimas tecnologías y mejores prácticas para garantizar un rendimiento óptimo y una experiencia de usuario excepcional.</p>
+                    <a href="#" class="btn">Descargar CV</a>
+                </div>
+                <div class="about-skills fade-in">
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>React</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>UI/UX Design</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Portfolio -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Mi Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Proyecto 1 -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <img src="/api/placeholder/400/300" alt="Proyecto 1">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce Responsivo</h3>
+                        <p>Diseño y desarrollo de una tienda en línea completamente responsiva con sistema de pagos integrado.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">React</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-link"></i> Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 2 -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <img src="/api/placeholder/400/300" alt="Proyecto 2">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Dashboard Administrativo</h3>
+                        <p>Interfaz de usuario para panel de administración con múltiples gráficos y estadísticas en tiempo real.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag">Styled Components</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-link"></i> Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 3 -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <img src="/api/placeholder/400/300" alt="Proyecto 3">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>App de Gestión de Tareas</h3>
+                        <p>Aplicación web para gestionar tareas con funcionalidades de arrastrar y soltar, filtros y notificaciones.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Vuex</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-link"></i> Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Mis Servicios</h2>
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Desarrollo Web</h3>
+                    <p>Creación de sitios web modernos, responsivos y optimizados para velocidad y SEO utilizando las últimas tecnologías.</p>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Diseño Responsivo</h3>
+                    <p>Adaptación de websites para una experiencia perfecta en todos los dispositivos, desde móviles hasta pantallas de escritorio.</p>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Diseño de interfaces de usuario intuitivas, atractivas y centradas en la experiencia del usuario final.</p>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Desarrollo Front-end</h3>
+                    <p>Implementación de diseños con código limpio y eficiente utilizando React, Vue.js y otras tecnologías modernas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Ubicación</h3>
+                            <p>Ciudad, País</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>tucorreo@ejemplo.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Teléfono</h3>
+                            <p>+123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Website</h3>
+                            <p>www.tudominio.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">Mi<span style="color: var(--accent-color);">Portfolio</span></div>
+                <p>Desarrollador Front-end especializado en crear interfaces modernas, intuitivas y de alto rendimiento para websites y aplicaciones.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-link-group">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#about">Sobre mí</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-link-group">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#">Desarrollo Web</a></li>
+                        <li><a href="#">Diseño Responsivo</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Desarrollo Front-end</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <h3>Sígueme</h3>
+                <div class="footer-social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Mi Portfolio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón scroll arriba -->
+    <div class="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- Scripts -->
+     <script src="scripts.js"></script>
+</body>
+</html>
