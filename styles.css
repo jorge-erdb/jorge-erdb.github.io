@@ -136,8 +136,13 @@ header.scrolled {
 }
 
 .hero-content {
+    background-color: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 16px;
     max-width: 600px;
     z-index: 1;
+    position: relative;
 }
 
 .hero h1 {
@@ -199,7 +204,7 @@ header.scrolled {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 45%;
+    width: 100%;
     z-index: 0;
     opacity: 0.9;
 }
