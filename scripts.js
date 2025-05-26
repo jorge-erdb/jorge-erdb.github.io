@@ -4,7 +4,7 @@ const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabPanels = document.querySelectorAll('.tab-panel');
-const contactForm = document.querySelector('.contact-form');
+const contactForm = document.querySelector('.contact-form') || document.getElementById('contact-form');
 
 // Mobile Navigation Toggle
 navToggle.addEventListener('click', () => {
@@ -104,39 +104,43 @@ tabButtons.forEach(button => {
 });
 
 // Contact Form Handling
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    // Get form data
-    const formData = new FormData(contactForm);
-    const formObject = {};
+        // Get form data
+        const formData = new FormData(contactForm);
+        const formObject = {};
 
-    // Convert FormData to object
-    for (let [key, value] of formData.entries()) {
-        formObject[key] = value;
-    }
+        // Convert FormData to object
+        for (let [key, value] of formData.entries()) {
+            formObject[key] = value;
+        }
 
-    // Show loading state
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Enviando...';
-    submitButton.disabled = true;
-    contactForm.classList.add('loading');
+        // Show loading state
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Enviando...';
+        submitButton.disabled = true;
+        contactForm.classList.add('loading');
 
-    // Simulate form submission (replace with actual form handling)
-    setTimeout(() => {
-        // Reset form
-        contactForm.reset();
+        // Simulate form submission (replace with actual form handling)
+        setTimeout(() => {
+            // Reset form
+            contactForm.reset();
 
-        // Show success message
-        showNotification('¡Mensaje enviado exitosamente! Te contactaré pronto.', 'success');
+            // Show success message
+            showNotification('¡Mensaje enviado exitosamente! Te contactaré pronto.', 'success');
 
-        // Reset button state
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-        contactForm.classList.remove('loading');
-    }, 2000);
-});
+            // Reset button state
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+            contactForm.classList.remove('loading');
+        }, 2000);
+    });
+} else {
+    console.warn('Formulario de Contacto no encontrado')
+}
 
 // Notification System
 function showNotification(message, type = 'success') {
@@ -229,23 +233,6 @@ function showNotification(message, type = 'success') {
     }, 5000);
 }
 
-// Header Background on Scroll
-// function updateHeaderBackground() {
-//    const header = document.querySelector('.header');
-//    const scrolled = window.scrollY > 50;
-
-//    if (scrolled) {
-//        header.style.background = 'rgba(255, 255, 255, 0.98)';
-//        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-//    } else {
-//        header.style.background = 'rgba(255, 255, 255, 0.95)';
-//        header.style.boxShadow = 'none';
-//    }
-//}
-
-// window.addEventListener('scroll', updateHeaderBackground);
-
-// Intersection Observer for Animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
