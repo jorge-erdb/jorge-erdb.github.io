@@ -74,15 +74,19 @@ function initStyleSystem() {
 
 // Configurar botones de estilo en navegación
 function setupStyleButtons() {
-    const allStyleButtons = document.querySelectorAll('.nav-link[data-style]');
+    const styleButtons = document.querySelectorAll('.nav-link[data-style]');
 
-    allStyleButtons.forEach(button => {
+    styleButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const style = button.dataset.style;
 
-            if (!button.classList.contains('disabled')) {
-                changeStyle(style);
+            if (style && availableStyles[style]) {
+                e.preventDefault();
+
+                if (!button.classList.contains('disabled')) {
+                    changeStyle(style);
+                }
             }
         });
     });
