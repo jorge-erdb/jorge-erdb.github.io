@@ -25,15 +25,7 @@ const availableStyles = {
         cssFile: 'styles/minimal.css',
         color: '#000000',
         icon: 'fas fa-minus',
-        disabled: true // Cambiar a false cuando esté listo
-    },
-    'neon': {
-        name: 'Neon',
-        description: 'Estilo cyberpunk con efectos de neón brillantes',
-        cssFile: 'styles/neon.css',
-        color: '#ff00ff',
-        icon: 'fas fa-bolt',
-        disabled: true
+        disabled: false // Cambiar a false cuando esté listo
     },
     'brutalist': {
         name: 'Brutalist',
@@ -41,7 +33,7 @@ const availableStyles = {
         cssFile: 'styles/brutalist.css',
         color: '#ff4444',
         icon: 'fas fa-cube',
-        disabled: true
+        disabled: false
     },
     'glassmorphism': {
         name: 'Glass',
@@ -57,7 +49,7 @@ const availableStyles = {
         cssFile: 'styles/retro.css',
         color: '#ff6b35',
         icon: 'fas fa-tv',
-        disabled: true
+        disabled: false
     }
 };
 

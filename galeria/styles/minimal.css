@@ -1,0 +1,728 @@
+/* ====================================
+   MINIMAL.CSS - DISEÑO MINIMALISTA EXTREMO
+   Una obra de arte en simplicidad
+   ==================================== */
+
+/* Reset y fundamentos minimalistas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de diseño minimalista */
+:root {
+    /* Paleta monocromática pura */
+    --color-primary: #000000;
+    --color-secondary: #ffffff;
+    --color-accent: #f5f5f5;
+    --color-subtle: #e8e8e8;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-text-lighter: #999999;
+
+    /* Espaciado sistemático basado en proporción áurea */
+    --space-xs: 0.618rem;
+    --space-sm: 1rem;
+    --space-md: 1.618rem;
+    --space-lg: 2.618rem;
+    --space-xl: 4.236rem;
+    --space-xxl: 6.854rem;
+
+    /* Tipografía minimalista */
+    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+
+    /* Tamaños tipográficos en escala modular */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 3rem;
+
+    /* Transiciones suaves y precisas */
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tipografía base - pureza absoluta */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+}
+
+/* Container minimalista - espacio perfecto */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* ====================================
+   HEADER - SIMPLICIDAD EXTREMA
+   ==================================== */
+
+.header {
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-subtle);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.nav-logo h2 {
+    font-size: var(--text-lg);
+    font-weight: 200;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+}
+
+.nav-logo span {
+    display: none;
+    /* Eliminamos elementos innecesarios */
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--space-lg);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: var(--text-sm);
+    font-weight: 300;
+    transition: var(--transition);
+    letter-spacing: 0.05em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-primary);
+}
+
+.nav-link i {
+    display: none;
+    /* Sin iconos - texto puro */
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* ====================================
+   INDICADOR DE ESTILO - MINIMAL
+   ==================================== */
+
+.style-indicator {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-accent);
+    padding: var(--space-xs) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-subtle);
+    z-index: 999;
+}
+
+.style-name {
+    font-size: var(--text-xs);
+    font-weight: 400;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.style-description {
+    display: none;
+    /* Eliminamos descripciones verbosas */
+}
+
+/* ====================================
+   HERO - IMPACTO MINIMALISTA
+   ==================================== */
+
+.portfolio-hero {
+    padding: calc(60px + var(--space-xl)) 0 var(--space-xxl);
+    text-align: center;
+    background-color: var(--color-secondary);
+}
+
+.portfolio-hero-content h1 {
+    font-size: var(--text-4xl);
+    font-weight: 100;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.highlight {
+    font-weight: 200;
+    color: var(--color-primary);
+    position: relative;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-primary);
+}
+
+.portfolio-hero-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+    font-weight: 300;
+}
+
+/* Botones minimalistas - formas puras */
+.hero-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: var(--space-sm) var(--space-lg);
+    border: 1px solid var(--color-text);
+    background-color: transparent;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 300;
+    transition: var(--transition);
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-color: var(--color-primary);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.btn i {
+    display: none;
+    /* Sin iconos */
+}
+
+/* ====================================
+   FILTROS - FUNCIONALIDAD PURA
+   ==================================== */
+
+.portfolio-section {
+    padding: var(--space-xxl) 0;
+}
+
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: var(--space-xs) var(--space-md);
+    border: none;
+    background-color: transparent;
+    color: var(--color-text-lighter);
+    font-size: var(--text-sm);
+    font-weight: 300;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+.filter-button.active {
+    color: var(--color-primary);
+}
+
+.filter-button.active::after,
+.filter-button:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 1px;
+    background-color: var(--color-primary);
+}
+
+.filter-button i {
+    display: none;
+}
+
+/* ====================================
+   GRID DE PROYECTOS - GEOMETRÍA PURA
+   ==================================== */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xxl);
+}
+
+.portfolio-item {
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-subtle);
+    transition: var(--transition-slow);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.portfolio-item-image {
+    width: 100%;
+    height: 240px;
+    background-color: var(--color-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.portfolio-item:hover .portfolio-item-image img {
+    transform: scale(1.02);
+}
+
+.portfolio-item-content {
+    padding: var(--space-lg);
+}
+
+.portfolio-item-title {
+    font-size: var(--text-xl);
+    font-weight: 300;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.01em;
+}
+
+.portfolio-item-description {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+}
+
+.portfolio-item-tags {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+}
+
+.portfolio-tag {
+    font-size: var(--text-xs);
+    color: var(--color-text-lighter);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+}
+
+.portfolio-tag:not(:last-child)::after {
+    content: '·';
+    margin-left: var(--space-xs);
+    color: var(--color-subtle);
+}
+
+/* ====================================
+   ESTADÍSTICAS - DATOS PUROS
+   ==================================== */
+
+.portfolio-stats {
+    background-color: var(--color-accent);
+    padding: var(--space-xl) 0;
+    border-top: 1px solid var(--color-subtle);
+    border-bottom: 1px solid var(--color-subtle);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-lg);
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.stat-number {
+    font-size: var(--text-3xl);
+    font-weight: 100;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+}
+
+/* ====================================
+   NAVEGACIÓN DE PROYECTOS
+   ==================================== */
+
+.project-navigation {
+    background-color: var(--color-secondary);
+    border-top: 1px solid var(--color-subtle);
+    padding: var(--space-xl) 0;
+}
+
+.project-navigation .container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.nav-project {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: var(--transition);
+    padding: var(--space-md);
+    border: 1px solid transparent;
+}
+
+.nav-project:hover {
+    border-color: var(--color-subtle);
+}
+
+.nav-project.prev {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.nav-project.next {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.nav-project-info h4 {
+    font-size: var(--text-xs);
+    color: var(--color-text-lighter);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-xs);
+    font-weight: 400;
+}
+
+.nav-project-info h3 {
+    font-size: var(--text-lg);
+    color: var(--color-primary);
+    font-weight: 300;
+}
+
+.nav-center {
+    text-align: center;
+}
+
+/* ====================================
+   LIGHTBOX - PUREZA VISUAL
+   ==================================== */
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-subtle);
+    padding: var(--space-lg);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: none;
+    border: none;
+    font-size: var(--text-lg);
+    cursor: pointer;
+    color: var(--color-text-light);
+    transition: var(--transition);
+}
+
+.lightbox-close:hover {
+    color: var(--color-primary);
+}
+
+.lightbox-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: var(--space-lg);
+}
+
+.lightbox-info h3 {
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.lightbox-info p {
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+}
+
+.lightbox-actions {
+    display: flex;
+    gap: var(--space-md);
+}
+
+/* ====================================
+   FOOTER - MÍNIMO ESENCIAL
+   ==================================== */
+
+.footer {
+    background-color: var(--color-accent);
+    border-top: 1px solid var(--color-subtle);
+    padding: var(--space-xl) 0 var(--space-lg);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-lg);
+}
+
+.footer-section h3,
+.footer-section h4 {
+    font-size: var(--text-lg);
+    font-weight: 300;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+}
+
+.footer-section p,
+.footer-section li {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: var(--space-xs);
+}
+
+.footer-section a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-subtle);
+}
+
+.footer-bottom p {
+    font-size: var(--text-xs);
+    color: var(--color-text-lighter);
+}
+
+/* ====================================
+   RESPONSIVE - SIMPLICIDAD ADAPTATIVA
+   ==================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --space-xl: 3rem;
+        --space-xxl: 4rem;
+        --text-4xl: 2.5rem;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-toggle .bar {
+        display: block;
+        width: 20px;
+        height: 1px;
+        background-color: var(--color-primary);
+        margin: 4px 0;
+        transition: var(--transition);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-navigation .container {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+
+    .nav-project.next {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    .portfolio-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ====================================
+   ELEMENTOS OCULTOS - PURISMO EXTREMO
+   ==================================== */
+
+/* Ocultamos elementos que rompen la pureza minimalista */
+.style-button.disabled,
+.nav-link i,
+.btn i,
+.filter-button i,
+.lightbox-close i {
+    display: none !important;
+}
+
+/* Estados de hover sutiles */
+*:focus {
+    outline: 1px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Animaciones minimalistas */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-item {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Selección de texto minimalista */
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+::-moz-selection {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
