@@ -1,0 +1,708 @@
+// ==============================================
+// PORTFOLIO SPECIFIC JAVASCRIPT
+// ==============================================
+
+// DOM Elements específicos del portafolio
+const portfolioGrid = document.querySelector('.portfolio-grid');
+const filterButtons = document.querySelectorAll('.filter-button');
+const portfolioCards = document.querySelectorAll('.portfolio-card');
+const lightbox = document.querySelector('.lightbox');
+const lightboxImage = document.querySelector('.lightbox-image');
+const lightboxTitle = document.querySelector('.lightbox-info h3');
+const lightboxDescription = document.querySelector('.lightbox-info p');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+// ==============================================
+// SISTEMA DE FILTROS
+// ==============================================
+
+// Configuración de categorías y proyectos
+const portfolioData = {
+    'web-design': [
+        {
+            id: 'corporate-site',
+            title: 'Sitio Corporativo Moderno',
+            description: 'Diseño web profesional para empresa de consultoría con enfoque en UX/UI y conversiones.',
+            category: 'web-design',
+            technologies: ['HTML5', 'CSS3', 'JavaScript', 'SCSS'],
+            image: 'placeholder', // Cambiar por URL real cuando tengas las imágenes
+            demoUrl: '#',
+            codeUrl: '#'
+        },
+        {
+            id: 'ecommerce-platform',
+            title: 'Plataforma E-commerce',
+            description: 'Tienda en línea completa con carrito de compras, pagos integrados y panel administrativo.',
+            category: 'web-design',
+            technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+            image: 'placeholder',
+            demoUrl: '#',
+            codeUrl: '#'
+        }
+    ],
+    'landing-pages': [
+        {
+            id: 'saas-landing',
+            title: 'Landing Page SaaS',
+            description: 'Página de aterrizaje optimizada para conversión de software como servicio.',
+            category: 'landing-pages',
+            technologies: ['Vue.js', 'Tailwind', 'AOS'],
+            image: 'placeholder',
+            demoUrl: '#',
+            codeUrl: '#'
+        },
+        {
+            id: 'restaurant-landing',
+            title: 'Landing Restaurante',
+            description: 'Sitio web para restaurante local con reservaciones online y menú interactivo.',
+            category: 'landing-pages',
+            technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
+            image: 'placeholder',
+            demoUrl: '#',
+            codeUrl: '#'
+        }
+    ],
+    'web-apps': [
+        {
+            id: 'task-manager',
+            title: 'Gestor de Tareas',
+            description: 'Aplicación web para gestión de proyectos y tareas con colaboración en tiempo real.',
+            category: 'web-apps',
+            technologies: ['React', 'Firebase', 'Material-UI'],
+            image: 'placeholder',
+            demoUrl: '#',
+            codeUrl: '#'
+        },
+        {
+            id: 'dashboard-analytics',
+            title: 'Dashboard Analítico',
+            description: 'Panel de control con métricas en tiempo real y visualizaciones interactivas.',
+            category: 'web-apps',
+            technologies: ['Vue.js', 'D3.js', 'Express', 'PostgreSQL'],
+            image: 'placeholder',
+            demoUrl: '#',
+            codeUrl: '#'
+        }
+    ],
+    'pyme-solutions': [
+        {
+            id: 'inventory-system',
+            title: 'Sistema de Inventario',
+            description: 'Solución completa para gestión de inventario y ventas para pequeñas empresas.',
+            category: 'pyme-solutions',
+            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
+            image: 'placeholder',
+            demoUrl: '#',
+            codeUrl: '#'
+        },
+        {
+            id: 'crm-simple',
+            title: 'CRM Simplificado',
+            description: 'Sistema de relación con clientes diseñado específicamente para PyMEs mexicanas.',
+            category: 'pyme-solutions',
+            technologies: ['Laravel', 'MySQL', 'Vue.js'],
+            image: 'placeholder',
+            demoUrl: '#',
+            codeUrl: '#'
+        }
+    ]
+};
+
+// Función para inicializar el portafolio
+function initPortfolio() {
+    renderPortfolioGrid('all');
+    setupFilterButtons();
+    setupLightbox();
+    setupAnimations();
+    updatePortfolioStats();
+
+    console.log('🎨 Portfolio initialized successfully!');
+}
+
+// ==============================================
+// RENDERIZADO DE PROYECTOS
+// ==============================================
+
+function renderPortfolioGrid(category = 'all') {
+    if (!portfolioGrid) return;
+
+    // Limpiar grid actual
+    portfolioGrid.innerHTML = '';
+
+    // Mostrar loading
+    portfolioGrid.innerHTML = '<div class="portfolio-loading"><div class="loading-spinner"></div>Cargando proyectos...</div>';
+
+    setTimeout(() => {
+        portfolioGrid.innerHTML = '';
+
+        // Obtener proyectos según categoría
+        let projectsToShow = [];
+
+        if (category === 'all') {
+            // Combinar todos los proyectos
+            Object.values(portfolioData).forEach(categoryProjects => {
+                projectsToShow = [...projectsToShow, ...categoryProjects];
+            });
+        } else {
+            projectsToShow = portfolioData[category] || [];
+        }
+
+        // Renderizar cada proyecto
+        projectsToShow.forEach((project, index) => {
+            const projectCard = createProjectCard(project, index);
+            portfolioGrid.appendChild(projectCard);
+        });
+
+        // Activar animaciones
+        setTimeout(() => {
+            const cards = portfolioGrid.querySelectorAll('.portfolio-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 100);
+            });
+        }, 100);
+
+    }, 500); // Simular tiempo de carga
+}
+
+function createProjectCard(project, index) {
+    const card = document.createElement('div');
+    card.className = 'portfolio-card portfolio-card-shine';
+    card.dataset.category = project.category;
+    card.dataset.project = project.id;
+
+    // Crear tecnologías HTML
+    const techTags = project.technologies.map(tech =>
+        `<span class="tech-tag">${tech}</span>`
+    ).join('');
+
+    card.innerHTML = `
+        <div class="portfolio-card-image">
+            ${project.image === 'placeholder' ?
+            `<div class="portfolio-card-placeholder">
+                    <i class="fas fa-${getIconForCategory(project.category)}"></i>
+                </div>` :
+            `<img src="${project.image}" alt="${project.title}">`
+        }
+            <div class="portfolio-card-overlay">
+                <button class="btn btn-outline btn-small" onclick="openLightbox('${project.id}')">
+                    <i class="fas fa-eye"></i> Ver
+                </button>
+                <a href="${project.demoUrl}" class="btn btn-primary btn-small" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Demo
+                </a>
+            </div>
+        </div>
+        <div class="portfolio-card-content">
+            <span class="portfolio-card-category">${getCategoryName(project.category)}</span>
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <div class="portfolio-card-tech">
+                ${techTags}
+            </div>
+            <div class="portfolio-card-links">
+                <a href="${project.demoUrl}" class="btn btn-outline" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Ver Demo
+                </a>
+                <a href="${project.codeUrl}" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-github"></i> Código
+                </a>
+            </div>
+        </div>
+    `;
+
+    return card;
+}
+
+// ==============================================
+// SISTEMA DE FILTROS
+// ==============================================
+
+function setupFilterButtons() {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Remover clase active de todos los botones
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Agregar clase active al botón clickeado
+            button.classList.add('active');
+
+            // Obtener categoría
+            const category = button.dataset.filter;
+
+            // Filtrar proyectos
+            filterProjects(category);
+
+            // Actualizar estadísticas
+            updatePortfolioStats(category);
+        });
+    });
+}
+
+function filterProjects(category) {
+    // Efecto de transición
+    const cards = document.querySelectorAll('.portfolio-card');
+
+    cards.forEach(card => {
+        card.classList.add('filtering');
+    });
+
+    setTimeout(() => {
+        renderPortfolioGrid(category);
+    }, 300);
+}
+
+// ==============================================
+// LIGHTBOX PARA IMÁGENES
+// ==============================================
+
+function setupLightbox() {
+    if (!lightbox) return;
+
+    // Cerrar lightbox al hacer clic en el botón de cerrar
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    // Cerrar lightbox al hacer clic fuera del contenido
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Cerrar lightbox con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
+
+function openLightbox(projectId) {
+    if (!lightbox) return;
+
+    // Encontrar proyecto
+    let project = null;
+    Object.values(portfolioData).forEach(categoryProjects => {
+        const found = categoryProjects.find(p => p.id === projectId);
+        if (found) project = found;
+    });
+
+    if (!project) return;
+
+    // Actualizar contenido del lightbox
+    if (lightboxImage) {
+        if (project.image === 'placeholder') {
+            lightboxImage.style.display = 'none';
+        } else {
+            lightboxImage.src = project.image;
+            lightboxImage.alt = project.title;
+            lightboxImage.style.display = 'block';
+        }
+    }
+
+    if (lightboxTitle) {
+        lightboxTitle.textContent = project.title;
+    }
+
+    if (lightboxDescription) {
+        lightboxDescription.textContent = project.description;
+    }
+
+    // Mostrar lightbox
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    if (!lightbox) return;
+
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// ==============================================
+// ESTADÍSTICAS DEL PORTAFOLIO
+// ==============================================
+
+function updatePortfolioStats(category = 'all') {
+    const statsElements = {
+        projects: document.querySelector('.stat-projects .stat-number'),
+        technologies: document.querySelector('.stat-technologies .stat-number'),
+        clients: document.querySelector('.stat-clients .stat-number'),
+        experience: document.querySelector('.stat-experience .stat-number')
+    };
+
+    let projectCount = 0;
+    let techSet = new Set();
+
+    if (category === 'all') {
+        Object.values(portfolioData).forEach(categoryProjects => {
+            projectCount += categoryProjects.length;
+            categoryProjects.forEach(project => {
+                project.technologies.forEach(tech => techSet.add(tech));
+            });
+        });
+    } else {
+        const categoryProjects = portfolioData[category] || [];
+        projectCount = categoryProjects.length;
+        categoryProjects.forEach(project => {
+            project.technologies.forEach(tech => techSet.add(tech));
+        });
+    }
+
+    // Animar números
+    if (statsElements.projects) {
+        animateNumber(statsElements.projects, projectCount);
+    }
+    if (statsElements.technologies) {
+        animateNumber(statsElements.technologies, techSet.size);
+    }
+    if (statsElements.clients) {
+        animateNumber(statsElements.clients, 15); // Número fijo de clientes
+    }
+    if (statsElements.experience) {
+        animateNumber(statsElements.experience, 3); // Años de experiencia
+    }
+}
+
+function animateNumber(element, targetNumber) {
+    const startNumber = 0;
+    const duration = 1000;
+    const steps = 60;
+    const increment = (targetNumber - startNumber) / steps;
+
+    let currentNumber = startNumber;
+    let stepCount = 0;
+
+    const timer = setInterval(() => {
+        currentNumber += increment;
+        stepCount++;
+
+        if (stepCount >= steps) {
+            currentNumber = targetNumber;
+            clearInterval(timer);
+        }
+
+        element.textContent = Math.floor(currentNumber);
+    }, duration / steps);
+}
+
+// ==============================================
+// ANIMACIONES Y EFECTOS
+// ==============================================
+
+function setupAnimations() {
+    // Intersection Observer para animaciones de entrada
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos del portafolio
+    const elementsToAnimate = document.querySelectorAll(
+        '.portfolio-card, .filter-button, .stat-item, .portfolio-hero-content'
+    );
+
+    elementsToAnimate.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Efecto parallax suave para el hero
+function setupParallaxEffect() {
+    const heroSection = document.querySelector('.portfolio-hero');
+    if (!heroSection) return;
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxSpeed = scrolled * 0.5;
+
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${parallaxSpeed}px)`;
+        }
+    });
+}
+
+// ==============================================
+// FUNCIONES UTILITARIAS
+// ==============================================
+
+function getIconForCategory(category) {
+    const icons = {
+        'web-design': 'palette',
+        'landing-pages': 'rocket',
+        'web-apps': 'cogs',
+        'pyme-solutions': 'building'
+    };
+    return icons[category] || 'code';
+}
+
+function getCategoryName(category) {
+    const names = {
+        'web-design': 'Diseño Web',
+        'landing-pages': 'Landing Pages',
+        'web-apps': 'Aplicaciones Web',
+        'pyme-solutions': 'Soluciones PyME'
+    };
+    return names[category] || 'Proyecto';
+}
+
+// ==============================================
+// BÚSQUEDA Y FILTRADO AVANZADO
+// ==============================================
+
+function setupSearchFunctionality() {
+    const searchInput = document.querySelector('.portfolio-search');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', debounceSearch);
+}
+
+const debounceSearch = debounce((e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.portfolio-card');
+
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        const technologies = Array.from(card.querySelectorAll('.tech-tag'))
+            .map(tag => tag.textContent.toLowerCase());
+
+        const matchesSearch = title.includes(searchTerm) ||
+            description.includes(searchTerm) ||
+            technologies.some(tech => tech.includes(searchTerm));
+
+        if (matchesSearch) {
+            card.style.display = 'block';
+            card.classList.add('fade-in');
+        } else {
+            card.style.display = 'none';
+            card.classList.remove('fade-in');
+        }
+    });
+}, 300);
+
+// ==============================================
+// NAVEGACIÓN ENTRE PROYECTOS
+// ==============================================
+
+function setupProjectNavigation() {
+    const navButtons = document.querySelectorAll('.nav-project');
+
+    navButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectId = button.dataset.project;
+            navigateToProject(projectId);
+        });
+    });
+}
+
+function navigateToProject(projectId) {
+    const projectCard = document.querySelector(`[data-project="${projectId}"]`);
+    if (projectCard) {
+        projectCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+
+        // Efecto de highlight
+        projectCard.style.boxShadow = '0 0 30px rgba(37, 137, 189, 0.6)';
+        setTimeout(() => {
+            projectCard.style.boxShadow = '';
+        }, 2000);
+    }
+}
+
+// ==============================================
+// LAZY LOADING DE IMÁGENES
+// ==============================================
+
+function setupLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// ==============================================
+// COMPARTIR PROYECTOS
+// ==============================================
+
+function shareProject(projectId) {
+    const project = findProjectById(projectId);
+    if (!project) return;
+
+    const shareData = {
+        title: `${project.title} - Jorge Erdmann Portfolio`,
+        text: project.description,
+        url: `${window.location.origin}/portfolio#${projectId}`
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData);
+    } else {
+        // Fallback: copiar al portapapeles
+        navigator.clipboard.writeText(shareData.url).then(() => {
+            showNotification('Enlace copiado al portapapeles', 'success');
+        });
+    }
+}
+
+function findProjectById(projectId) {
+    let foundProject = null;
+    Object.values(portfolioData).forEach(categoryProjects => {
+        const project = categoryProjects.find(p => p.id === projectId);
+        if (project) foundProject = project;
+    });
+    return foundProject;
+}
+
+// ==============================================
+// MODO PRESENTACIÓN
+// ==============================================
+
+function togglePresentationMode() {
+    document.body.classList.toggle('presentation-mode');
+
+    if (document.body.classList.contains('presentation-mode')) {
+        showNotification('Modo presentación activado', 'success');
+        // Ocultar elementos no esenciales
+        const elementsToHide = document.querySelectorAll('.nav-menu, .footer');
+        elementsToHide.forEach(el => el.style.display = 'none');
+    } else {
+        showNotification('Modo presentación desactivado', 'success');
+        // Mostrar elementos
+        const elementsToShow = document.querySelectorAll('.nav-menu, .footer');
+        elementsToShow.forEach(el => el.style.display = '');
+    }
+}
+
+// ==============================================
+// EXPORTAR PORTAFOLIO
+// ==============================================
+
+function exportPortfolioData() {
+    const portfolioInfo = {
+        projects: portfolioData,
+        stats: {
+            totalProjects: Object.values(portfolioData).flat().length,
+            categories: Object.keys(portfolioData).length,
+            technologies: [...new Set(Object.values(portfolioData).flat()
+                .map(p => p.technologies).flat())].length
+        },
+        exportDate: new Date().toISOString()
+    };
+
+    const dataStr = JSON.stringify(portfolioInfo, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(dataBlob);
+    link.download = 'jorge-erdmann-portfolio.json';
+    link.click();
+
+    showNotification('Portafolio exportado exitosamente', 'success');
+}
+
+// ==============================================
+// EVENTOS DE TECLADO ESPECÍFICOS
+// ==============================================
+
+function setupKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+        // Ctrl/Cmd + K = Buscar
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            const searchInput = document.querySelector('.portfolio-search');
+            if (searchInput) searchInput.focus();
+        }
+
+        // P = Modo presentación
+        if (e.key === 'p' && !e.ctrlKey && !e.metaKey) {
+            togglePresentationMode();
+        }
+
+        // E = Exportar
+        if (e.key === 'e' && (e.ctrlKey || e.metaKey)) {
+            e.preventDefault();
+            exportPortfolioData();
+        }
+    });
+}
+
+// ==============================================
+// INICIALIZACIÓN
+// ==============================================
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    initPortfolio();
+    setupSearchFunctionality();
+    setupProjectNavigation();
+    setupLazyLoading();
+    setupKeyboardShortcuts();
+    setupParallaxEffect();
+
+    // Manejar cambio de hash en URL
+    window.addEventListener('hashchange', () => {
+        const projectId = window.location.hash.substring(1);
+        if (projectId) {
+            navigateToProject(projectId);
+        }
+    });
+
+    // Navegar a proyecto si hay hash en URL
+    if (window.location.hash) {
+        const projectId = window.location.hash.substring(1);
+        setTimeout(() => navigateToProject(projectId), 1000);
+    }
+});
+
+// Optimización de rendimiento
+window.addEventListener('beforeunload', () => {
+    // Limpiar observers y timers
+    if (typeof observer !== 'undefined') {
+        observer.disconnect();
+    }
+});
+
+// ==============================================
+// FUNCIONES GLOBALES ACCESIBLES
+// ==============================================
+
+// Exponer funciones para uso en HTML
+window.portfolioFunctions = {
+    openLightbox,
+    closeLightbox,
+    shareProject,
+    togglePresentationMode,
+    exportPortfolioData,
+    filterProjects
+};
+
+console.log('🎨 Portfolio JavaScript loaded successfully!');
+console.log('📱 Keyboard shortcuts: Ctrl+K (search), P (presentation), Ctrl+E (export)');
