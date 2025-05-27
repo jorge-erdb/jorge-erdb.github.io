@@ -1,4 +1,202 @@
 // ==============================================
+// SISTEMA DE TRANSFORMACIÓN DE ESTILOS
+// ==============================================
+
+// Configuración de estilos disponibles
+const availableStyles = {
+    'default': {
+        name: 'Estilo Principal',
+        description: 'Diseño base con paleta iridiscente y efectos glassmorphism',
+        cssFile: null, // Usa los estilos base
+        color: 'var(--gradient-holographic)',
+        icon: 'fas fa-palette'
+    },
+    'corporate': {
+        name: 'Corporate',
+        description: 'Estilo empresarial profesional',
+        cssFile: 'styles/corporate.css',
+        color: '#1e3a8a',
+        icon: 'fas fa-building',
+        disabled: false // ¡Nuevo estilo disponible!
+    },
+    'minimal': {
+        name: 'Minimal',
+        description: 'Diseño limpio y minimalista en blanco y negro',
+        cssFile: 'styles/minimal.css',
+        color: '#000000',
+        icon: 'fas fa-minus',
+        disabled: true // Cambiar a false cuando esté listo
+    },
+    'neon': {
+        name: 'Neon',
+        description: 'Estilo cyberpunk con efectos de neón brillantes',
+        cssFile: 'styles/neon.css',
+        color: '#ff00ff',
+        icon: 'fas fa-bolt',
+        disabled: true
+    },
+    'brutalist': {
+        name: 'Brutalist',
+        description: 'Diseño bold y arquitectónico con tipografías pesadas',
+        cssFile: 'styles/brutalist.css',
+        color: '#ff4444',
+        icon: 'fas fa-cube',
+        disabled: true
+    },
+    'glassmorphism': {
+        name: 'Glass',
+        description: 'Efectos de vidrio esmerilado y transparencias',
+        cssFile: 'styles/glassmorphism.css',
+        color: 'rgba(255,255,255,0.2)',
+        icon: 'fas fa-gem',
+        disabled: true
+    },
+    'retro': {
+        name: 'Retro',
+        description: 'Inspiración vintage de los años 80 y 90',
+        cssFile: 'styles/retro.css',
+        color: '#ff6b35',
+        icon: 'fas fa-tv',
+        disabled: true
+    }
+};
+
+let currentStyle = 'default';
+
+// Inicializar sistema de estilos
+function initStyleSystem() {
+    setupStyleButtons();
+    updateFooterStylesList();
+    setupRandomStyleButton();
+
+    console.log('🎨 Style transformation system initialized!');
+}
+
+// Configurar botones de estilo en navegación
+function setupStyleButtons() {
+    const allStyleButtons = document.querySelectorAll('.nav-link[data-style]');
+
+    allStyleButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const style = button.dataset.style;
+
+            if (!button.classList.contains('disabled')) {
+                changeStyle(style);
+            }
+        });
+    });
+}
+
+// Cambiar estilo principal
+function changeStyle(newStyle) {
+    if (availableStyles[newStyle]?.disabled) {
+        showNotification('Este estilo estará disponible próximamente', 'info');
+        return;
+    }
+
+    if (newStyle === currentStyle) return;
+
+    // Efecto de transición
+    document.body.classList.add('style-changing');
+
+    setTimeout(() => {
+        // Actualizar estilo actual
+        currentStyle = newStyle;
+        const style = availableStyles[newStyle];
+
+        // Actualizar indicadores
+        updateStyleIndicators(style);
+
+        // Cargar CSS específico del estilo
+        loadStyleCSS(style.cssFile);
+
+        // Actualizar elementos activos
+        updateActiveStyleElements(newStyle);
+
+        // Completar transición
+        setTimeout(() => {
+            document.body.classList.remove('style-changing');
+            showNotification(`Estilo cambiado a: ${style.name}`, 'success');
+        }, 300);
+
+    }, 200);
+}
+
+// Actualizar indicadores de estilo
+function updateStyleIndicators(style) {
+    const styleName = document.getElementById('current-style-name');
+    const styleDescription = document.getElementById('current-style-description');
+
+    if (styleName) styleName.textContent = style.name;
+    if (styleDescription) styleDescription.textContent = style.description;
+}
+
+// Cargar CSS específico del estilo
+function loadStyleCSS(cssFile) {
+    // Remover CSS anterior si existe
+    const existingStyleLink = document.getElementById('dynamic-style-link');
+    if (existingStyleLink) {
+        existingStyleLink.remove();
+    }
+
+    // Cargar nuevo CSS si se especifica
+    if (cssFile) {
+        const link = document.createElement('link');
+        link.id = 'dynamic-style-link';
+        link.rel = 'stylesheet';
+        link.href = cssFile;
+        document.head.appendChild(link);
+    }
+}
+
+// Actualizar elementos activos
+function updateActiveStyleElements(styleKey) {
+    // Actualizar navegación
+    const navLinks = document.querySelectorAll('.nav-link[data-style]');
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.style === styleKey);
+    });
+}
+
+// Configurar botón de estilo aleatorio
+function setupRandomStyleButton() {
+    const randomBtn = document.getElementById('random-style-btn');
+    if (!randomBtn) return;
+
+    randomBtn.addEventListener('click', () => {
+        const availableKeys = Object.keys(availableStyles).filter(
+            key => !availableStyles[key].disabled && key !== currentStyle
+        );
+
+        if (availableKeys.length > 0) {
+            const randomStyle = availableKeys[Math.floor(Math.random() * availableKeys.length)];
+            changeStyle(randomStyle);
+        }
+    });
+}
+
+// Actualizar lista de estilos en footer
+function updateFooterStylesList() {
+    const footerList = document.getElementById('footer-styles-list');
+    if (!footerList) return;
+
+    footerList.innerHTML = '';
+
+    Object.entries(availableStyles).forEach(([styleKey, style]) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <a href="#" onclick="changeStyle('${styleKey}')" 
+               ${style.disabled ? 'class="disabled"' : ''}>
+                <i class="${style.icon}"></i> ${style.name}
+                ${style.disabled ? ' (Próximamente)' : ''}
+            </a>
+        `;
+        footerList.appendChild(li);
+    });
+}
+
+// ==============================================
 // PORTFOLIO SPECIFIC JAVASCRIPT
 // ==============================================
 
@@ -660,7 +858,10 @@ function setupKeyboardShortcuts() {
 
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
+    initStyleSystem();
+
     initPortfolio();
+
     setupSearchFunctionality();
     setupProjectNavigation();
     setupLazyLoading();
@@ -701,8 +902,10 @@ window.portfolioFunctions = {
     shareProject,
     togglePresentationMode,
     exportPortfolioData,
-    filterProjects
+    filterProjects,
+    changeStyle // Agregar función de cambio de estilo
 };
 
 console.log('🎨 Portfolio JavaScript loaded successfully!');
 console.log('📱 Keyboard shortcuts: Ctrl+K (search), P (presentation), Ctrl+E (export)');
+console.log('🎨 Style system ready! Available styles:', Object.keys(availableStyles));

@@ -2,10 +2,77 @@
 @import url('../styles.css');
 
 /* ==============================================
-   ESTILOS ESPECÍFICOS DEL PORTAFOLIO
+   SISTEMA DE TRANSFORMACIÓN DE ESTILOS
    ============================================== */
 
-/* Variables adicionales para el portafolio */
+/* Indicador de estilo actual */
+.style-indicator {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    background: var(--blur-bg);
+    backdrop-filter: blur(20px);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+    transition: var(--transition);
+    max-width: 300px;
+}
+
+.style-indicator:hover {
+    transform: translateX(5px);
+    box-shadow: var(--glow-secondary);
+}
+
+.style-indicator-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.style-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--gradient-holographic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.style-description {
+    font-size: 0.7rem;
+    color: var(--text-accent);
+    line-height: 1.3;
+}
+
+/* Transiciones de cambio de estilo */
+.style-changing {
+    pointer-events: none;
+    transition: all 0.3s ease-out;
+}
+
+.style-changing * {
+    transition: all 0.3s ease-out;
+}
+
+/* Estilos para botones de navegación deshabilitados */
+.nav-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.nav-link.disabled:hover {
+    transform: none;
+    color: var(--text-accent);
+}
+
+/* ==============================================
+   VARIABLES ADICIONALES PARA EL PORTAFOLIO
+   ============================================== */
 :root {
     --portfolio-grid-gap: 2rem;
     --project-card-radius: 20px;
