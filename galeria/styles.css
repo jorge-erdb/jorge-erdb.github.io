@@ -84,11 +84,11 @@
    HERO SECTION DEL PORTAFOLIO
    ============================================== */
 .portfolio-hero {
-    min-height: 70vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     background: var(--bg-primary);
-    padding-top: 120px;
+    padding-top: 100px;
     position: relative;
 }
 

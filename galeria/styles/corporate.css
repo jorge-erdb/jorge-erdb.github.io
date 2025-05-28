@@ -211,6 +211,7 @@ body {
 
 /* ===== HERO SECTION ===== */
 .portfolio-hero {
+    min-height: 70vh;
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--primary-light) 100%);
     color: var(--text-white);
     padding: 6rem 0 4rem;
