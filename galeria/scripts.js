@@ -891,33 +891,82 @@ window.addEventListener('beforeunload', () => {
 });
 
 function initMobileNavigation() {
+    console.log('🔧 Initializing mobile navigation...');
+
+    // Get elements
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle mobile menu
+    console.log('Nav toggle found:', !!navToggle);
+    console.log('Nav menu found:', !!navMenu);
+    console.log('Nav links found:', navLinks.length);
+
+    // If elements don't exist, try alternative selectors
+    if (!navToggle || !navMenu) {
+        console.warn('⚠️ Navigation elements not found with IDs, trying alternative selectors...');
+
+        // Try alternative selectors
+        const altNavToggle = document.querySelector('.nav-toggle');
+        const altNavMenu = document.querySelector('.nav-menu');
+
+        if (altNavToggle && altNavMenu) {
+            console.log('✅ Found navigation elements with class selectors');
+            setupMobileNavigation(altNavToggle, altNavMenu, navLinks);
+        } else {
+            console.error('❌ Could not find navigation elements');
+            return;
+        }
+    } else {
+        console.log('✅ Found navigation elements with ID selectors');
+        setupMobileNavigation(navToggle, navMenu, navLinks);
+    }
+}
+
+function setupMobileNavigation(navToggle, navMenu, navLinks) {
+    // Toggle mobile menu function
     function toggleMobileMenu() {
-        if (navMenu && navToggle) {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
+        console.log('🔄 Toggling mobile menu...');
 
-            // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        }
-    }
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
 
-    // Close mobile menu
-    function closeMobileMenu() {
-        if (navMenu && navToggle) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
+        // Prevent body scroll when menu is open
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+            console.log('📱 Mobile menu opened');
+        } else {
             document.body.style.overflow = '';
+            console.log('📱 Mobile menu closed');
         }
     }
+
+    // Close mobile menu function
+    function closeMobileMenu() {
+        console.log('✖️ Closing mobile menu...');
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Add click event to toggle button
+    navToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('🖱️ Toggle button clicked');
+        toggleMobileMenu();
+    });
+
+    // Close menu when clicking on navigation links
+    navLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            // Only close if we're on mobile and the link is not disabled
+            if (window.innerWidth <= 768 && !link.classList.contains('disabled')) {
+                console.log('🔗 Navigation link clicked, closing menu...');
+                setTimeout(closeMobileMenu, 100);
+            }
+        });
+    });
 
     // Set up event listeners
     if (navToggle) {
@@ -939,30 +988,33 @@ function initMobileNavigation() {
     });
 
     // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (navMenu && navMenu.classList.contains('active')) {
-            // If click is outside the nav container
+    document.addEventListener('click', function (e) {
+        if (navMenu.classList.contains('active')) {
+            // Check if the click was outside the navigation
             if (!e.target.closest('.nav-container')) {
+                console.log('🖱️ Clicked outside navigation, closing menu...');
                 closeMobileMenu();
             }
         }
     });
 
     // Close menu on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            console.log('⌨️ Escape key pressed, closing menu...');
             closeMobileMenu();
         }
     });
 
     // Handle window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            console.log('📏 Window resized to desktop, closing menu...');
             closeMobileMenu();
         }
     });
 
-    console.log('📱 Mobile navigation initialized');
+    console.log('✅ Mobile navigation setup complete!');
 }
 
 function isMobileMenuOpen() {
