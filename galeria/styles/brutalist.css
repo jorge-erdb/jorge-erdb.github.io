@@ -1772,7 +1772,6 @@ button {
     .nav-menu {
         padding: 30px 15px;
         border-width: 5px;
-        z-index: 1000;
     }
 
     .nav-link {
@@ -1789,9 +1788,5 @@ button {
         width: 20px;
         height: 3px;
         margin: 2px 0;
-    }
-
-    .header {
-        margin-bottom: 120px;
     }
 }
