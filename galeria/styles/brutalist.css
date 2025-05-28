@@ -1789,4 +1789,8 @@ button {
         height: 3px;
         margin: 2px 0;
     }
+
+    .portfolio-hero {
+        padding-top: 100px;
+    }
 }
