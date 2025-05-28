@@ -1772,6 +1772,7 @@ button {
     .nav-menu {
         padding: 30px 15px;
         border-width: 5px;
+        z-index: 1000;
     }
 
     .nav-link {
@@ -1790,7 +1791,7 @@ button {
         margin: 2px 0;
     }
 
-    .portfolio-hero {
-        padding-top: 300px;
+    .header {
+        margin-bottom: 120px;
     }
 }
