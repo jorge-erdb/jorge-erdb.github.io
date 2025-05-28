@@ -858,6 +858,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initPortfolio();
 
+    initMobileNavigation();
+
     setupSearchFunctionality();
     setupProjectNavigation();
     setupLazyLoading();
@@ -887,6 +889,102 @@ window.addEventListener('beforeunload', () => {
         observer.disconnect();
     }
 });
+
+function initMobileNavigation() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        if (navMenu && navToggle) {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+    }
+
+    // Close mobile menu
+    function closeMobileMenu() {
+        if (navMenu && navToggle) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Set up event listeners
+    if (navToggle) {
+        navToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+
+    // Close menu when clicking on nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Only close if it's not a disabled link and we're on mobile
+            if (!link.classList.contains('disabled') && window.innerWidth <= 768) {
+                setTimeout(closeMobileMenu, 100);
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navMenu && navMenu.classList.contains('active')) {
+            // If click is outside the nav container
+            if (!e.target.closest('.nav-container')) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
+
+    console.log('📱 Mobile navigation initialized');
+}
+
+function isMobileMenuOpen() {
+    const navMenu = document.getElementById('nav-menu');
+    return navMenu ? navMenu.classList.contains('active') : false;
+}
+
+// Function to force close mobile menu (useful for programmatic closing)
+function forceMobileMenuClose() {
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+
+    if (navMenu) navMenu.classList.remove('active');
+    if (navToggle) navToggle.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Export functions for global access
+window.mobileNavUtils = {
+    isOpen: isMobileMenuOpen,
+    forceClose: forceMobileMenuClose
+};
 
 // ==============================================
 // FUNCIONES GLOBALES ACCESIBLES
