@@ -248,11 +248,13 @@ body {
     background-color: var(--color-primary);
     color: var(--color-secondary);
     border-color: var(--color-primary);
+    box-shadow: none;
 }
 
 .btn-primary:hover {
     background-color: transparent;
     color: var(--color-primary);
+    box-shadow: none;
 }
 
 .btn i {
@@ -398,6 +400,463 @@ body {
     content: '·';
     margin-left: var(--space-xs);
     color: var(--color-subtle);
+}
+
+/* ====================================
+   PORTFOLIO CARD - MINIMAL DESIGN
+   Pureza absoluta en forma y función
+   ==================================== */
+
+.portfolio-card {
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-subtle);
+    transition: var(--transition-slow);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.portfolio-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* ====================================
+   IMAGEN - GEOMETRÍA PURA
+   ==================================== */
+
+.portfolio-card-image {
+    width: 100%;
+    height: 240px;
+    background-color: var(--color-accent);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-subtle);
+}
+
+.portfolio-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.portfolio-card:hover .portfolio-card-image img {
+    transform: scale(1.02);
+}
+
+/* Placeholder minimalista */
+.portfolio-card-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    background-color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-lighter);
+    font-size: var(--text-3xl);
+    font-weight: 100;
+    transition: var(--transition-slow);
+}
+
+.portfolio-card:hover .portfolio-card-placeholder {
+    color: var(--color-primary);
+}
+
+/* ====================================
+   OVERLAY - FUNCIONALIDAD PURA
+   ==================================== */
+
+.portfolio-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    opacity: 0;
+    transition: var(--transition-slow);
+}
+
+.portfolio-card:hover .portfolio-card-overlay {
+    opacity: 1;
+}
+
+.portfolio-card-overlay .btn {
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--color-text);
+    background-color: transparent;
+    color: var(--color-text);
+    font-size: var(--text-xs);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.portfolio-card:hover .portfolio-card-overlay .btn {
+    transform: translateY(0);
+}
+
+.portfolio-card-overlay .btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-color: var(--color-primary);
+}
+
+.portfolio-card-overlay .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-color: var(--color-primary);
+}
+
+.portfolio-card-overlay .btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+/* Sin iconos - texto puro */
+.portfolio-card-overlay .btn i {
+    display: none;
+}
+
+/* ====================================
+   CONTENIDO - TIPOGRAFÍA ESENCIAL
+   ==================================== */
+
+.portfolio-card-content {
+    padding: var(--space-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Categoría minimalista */
+.portfolio-card-category {
+    font-size: var(--text-xs);
+    color: var(--color-text-lighter);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    margin-bottom: var(--space-md);
+    position: relative;
+    width: fit-content;
+    background: none;
+    border: none;
+}
+
+.portfolio-card-category::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-subtle);
+}
+
+/* Título con jerarquía visual clara */
+.portfolio-card-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 300;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+/* Descripción funcional */
+.portfolio-card-content p {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+    flex: 1;
+}
+
+/* ====================================
+   TECNOLOGÍAS - DATOS PUROS
+   ==================================== */
+
+.portfolio-card-tech {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+}
+
+.portfolio-card-tech .tech-tag {
+    font-size: var(--text-xs);
+    color: var(--color-text-lighter);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.portfolio-card-tech .tech-tag:not(:last-child)::after {
+    content: '·';
+    margin-left: var(--space-xs);
+    color: var(--color-subtle);
+}
+
+.portfolio-card:hover .portfolio-card-tech .tech-tag {
+    color: var(--color-text);
+}
+
+/* ====================================
+   ENLACES - ACCIONES ESENCIALES
+   ==================================== */
+
+.portfolio-card-links {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-subtle);
+}
+
+.portfolio-card-links .btn {
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--color-text-lighter);
+    background-color: transparent;
+    color: var(--color-text-light);
+    font-size: var(--text-xs);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    flex: 1;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.portfolio-card-links .btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.portfolio-card-links .btn-outline {
+    border-color: var(--color-text);
+    color: var(--color-text);
+}
+
+.portfolio-card-links .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-color: var(--color-primary);
+}
+
+.portfolio-card-links .btn-secondary {
+    border-color: var(--color-text-lighter);
+    color: var(--color-text-lighter);
+}
+
+.portfolio-card-links .btn-secondary:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+}
+
+/* Sin iconos en enlaces */
+.portfolio-card-links .btn i {
+    display: none;
+}
+
+/* ====================================
+   ESTADOS - TRANSICIONES SUTILES
+   ==================================== */
+
+/* Estado de filtrado */
+.portfolio-card.filtering {
+    opacity: 0.3;
+    transform: scale(0.98);
+    transition: var(--transition);
+}
+
+/* Animación de entrada */
+.portfolio-card.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Estado de carga minimalista */
+.portfolio-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-xxl) var(--space-lg);
+    color: var(--color-text-lighter);
+    font-size: var(--text-lg);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--color-subtle);
+    border-top: 1px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ====================================
+   VARIACIONES POR CATEGORÍA
+   ==================================== */
+
+.portfolio-card[data-category="web-design"] .portfolio-card-category::after {
+    background-color: var(--color-primary);
+}
+
+.portfolio-card[data-category="landing-pages"] .portfolio-card-category::after {
+    background-color: var(--color-text);
+}
+
+.portfolio-card[data-category="web-apps"] .portfolio-card-category::after {
+    background-color: var(--color-text-light);
+}
+
+.portfolio-card[data-category="pyme-solutions"] .portfolio-card-category::after {
+    background-color: var(--color-text-lighter);
+}
+
+/* ====================================
+   RESPONSIVE - ADAPTACIÓN MINIMALISTA
+   ==================================== */
+
+@media (max-width: 768px) {
+    .portfolio-card-content {
+        padding: var(--space-md);
+    }
+
+    .portfolio-card-image {
+        height: 200px;
+    }
+
+    .portfolio-card-content h3 {
+        font-size: var(--text-lg);
+    }
+
+    .portfolio-card-links {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .portfolio-card-links .btn {
+        width: 100%;
+    }
+
+    .portfolio-card-overlay {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-card-content {
+        padding: var(--space-sm);
+    }
+
+    .portfolio-card-image {
+        height: 180px;
+    }
+
+    .portfolio-card-tech {
+        gap: var(--space-xs);
+    }
+
+    .portfolio-card-tech .tech-tag {
+        font-size: 0.7rem;
+    }
+}
+
+/* ====================================
+   ELIMINACIÓN DE ELEMENTOS INNECESARIOS
+   ==================================== */
+
+/* Siguiendo la filosofía minimalista: sin efectos visuales innecesarios */
+.portfolio-card-shine::before {
+    display: none;
+}
+
+.portfolio-card::before {
+    display: none;
+}
+
+/* Sin sombras - pureza geométrica */
+.portfolio-card {
+    box-shadow: none;
+}
+
+.portfolio-card:hover {
+    box-shadow: none;
+}
+
+/* ====================================
+   MODO PRESENTACIÓN - EXTREMA SIMPLICIDAD
+   ==================================== */
+
+.presentation-mode .portfolio-card {
+    transform: scale(0.98);
+    transition: var(--transition-slow);
+}
+
+.presentation-mode .portfolio-card:hover {
+    transform: scale(1.0) translateY(-2px);
+}
+
+/* ====================================
+   FOCUS STATES - ACCESIBILIDAD MÍNIMA
+   ==================================== */
+
+.portfolio-card:focus {
+    outline: 1px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.portfolio-card-links .btn:focus {
+    outline: 1px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
+/* ====================================
+   SELECCIÓN DE TEXTO
+   ==================================== */
+
+.portfolio-card ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.portfolio-card ::-moz-selection {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
 }
 
 /* ====================================
@@ -591,7 +1050,9 @@ body {
 .footer-section h4 {
     font-size: var(--text-lg);
     font-weight: 300;
-    color: var(--color-primary);
+    background: var(--color-primary);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: var(--space-md);
 }
 

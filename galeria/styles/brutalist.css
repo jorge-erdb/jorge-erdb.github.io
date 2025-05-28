@@ -148,8 +148,9 @@ body::before {
     border: 8px solid #000000;
     margin: 20px;
     transform: rotate(-1deg);
-    position: relative;
-    z-index: 10;
+    position: absolute;
+    top: 15%;
+    z-index: 101;
 }
 
 .style-indicator::before {
@@ -201,6 +202,7 @@ body::before {
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding-top: 0px;
 }
 
 .portfolio-hero::after {
@@ -466,6 +468,725 @@ body::before {
     font-size: 0.9rem;
 }
 
+/* =========================================
+   PORTFOLIO CARD - BRUTALIST EXTREME
+   Agresividad visual máxima
+   ========================================= */
+
+.portfolio-card {
+    background: #FFFFFF;
+    border: 8px solid #000000;
+    transform: rotate(calc(var(--random) * 6deg - 3deg));
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%2300FF00' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E"), pointer;
+}
+
+.portfolio-card:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.portfolio-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.portfolio-card:nth-child(3n) {
+    transform: rotate(-3deg);
+}
+
+.portfolio-card:nth-child(4n) {
+    transform: rotate(3deg);
+}
+
+.portfolio-card:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 20px 20px 0 #FF0000;
+    z-index: 10;
+    position: relative;
+    animation: glitch-card 0.3s ease-out;
+}
+
+/* Patrón de ruido brutalist */
+.portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 0, 0, 0.1) 10px,
+            rgba(0, 0, 0, 0.1) 20px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ====================================
+   IMAGEN BRUTALIST
+   ==================================== */
+
+.portfolio-card-image {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid #000000;
+    background: repeating-linear-gradient(45deg,
+            #FF0000,
+            #FF0000 25px,
+            #FFFF00 25px,
+            #FFFF00 50px);
+}
+
+.portfolio-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(150%) saturate(200%) hue-rotate(15deg);
+    transition: all 0.2s ease;
+}
+
+.portfolio-card:hover .portfolio-card-image img {
+    filter: contrast(200%) saturate(300%) hue-rotate(-15deg);
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Placeholder agresivo */
+.portfolio-card-placeholder {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg,
+            #000000,
+            #000000 25px,
+            #FF0000 25px,
+            #FF0000 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFF00;
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 5px 5px 0 #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card-placeholder::after {
+    content: 'NO IMAGE';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #00FF00;
+    color: #000000;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    border: 2px solid #000000;
+    transform: rotate(-10deg);
+}
+
+.portfolio-card:hover .portfolio-card-placeholder {
+    animation: chaos 0.5s infinite;
+}
+
+/* ====================================
+   OVERLAY AGRESIVO
+   ==================================== */
+
+.portfolio-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(45deg,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.9) 20px,
+            rgba(255, 0, 0, 0.8) 20px,
+            rgba(255, 0, 0, 0.8) 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    transition: all 0.2s ease;
+    flex-direction: column;
+}
+
+.portfolio-card:hover .portfolio-card-overlay {
+    opacity: 1;
+}
+
+.portfolio-card-overlay::before {
+    content: 'BRUTALIST PROJECT';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    background: #FFFF00;
+    color: #000000;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    border: 3px solid #000000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.portfolio-card-overlay .btn {
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 4px solid;
+    background: none;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    position: relative;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23FFFF00' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E"), pointer;
+    transform: translateY(20px);
+    transition: all 0.1s ease;
+}
+
+.portfolio-card:hover .portfolio-card-overlay .btn {
+    transform: translateY(0);
+}
+
+.portfolio-card-overlay .btn:first-child {
+    transition-delay: 0.1s;
+}
+
+.portfolio-card-overlay .btn:last-child {
+    transition-delay: 0.2s;
+}
+
+.portfolio-card-overlay .btn-outline {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    background: transparent;
+    transform: rotate(-2deg) translateY(20px);
+}
+
+.portfolio-card-overlay .btn-outline:hover {
+    background: #FFFFFF;
+    color: #000000;
+    transform: rotate(2deg) scale(1.1) translateY(0);
+    box-shadow: 5px 5px 0 #FF0000;
+}
+
+.portfolio-card-overlay .btn-primary {
+    color: #000000;
+    border-color: #FFFF00;
+    background: #FFFF00;
+    transform: rotate(2deg) translateY(20px);
+}
+
+.portfolio-card-overlay .btn-primary:hover {
+    background: #000000;
+    color: #FFFF00;
+    transform: rotate(-2deg) scale(1.1) translateY(0);
+    box-shadow: -5px 5px 0 #00FF00;
+}
+
+/* Sin iconos - texto brutal */
+.portfolio-card-overlay .btn i {
+    display: none;
+}
+
+/* ====================================
+   CONTENIDO AGRESIVO
+   ==================================== */
+
+.portfolio-card-content {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+}
+
+/* Categoría brutal */
+.portfolio-card-category {
+    display: inline-block;
+    background: #000000;
+    color: #00FF00;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 3px solid #FF0000;
+    margin-bottom: 15px;
+    width: fit-content;
+    transform: rotate(-3deg);
+    position: relative;
+    animation: blink-category 3s infinite;
+}
+
+.portfolio-card-category::after {
+    content: '→';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FF0000;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+/* Título devastador */
+.portfolio-card-content h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-family: 'Courier New', monospace;
+    position: relative;
+}
+
+.portfolio-card:hover .portfolio-card-content h3 {
+    color: #FF0000;
+    text-shadow: 2px 2px 0 #FFFF00;
+    animation: title-glitch 0.5s ease-out;
+}
+
+/* Descripción directa */
+.portfolio-card-content p {
+    color: #333333;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    flex: 1;
+    font-family: 'Courier New', monospace;
+}
+
+/* ====================================
+   TECNOLOGÍAS BRUTALES
+   ==================================== */
+
+.portfolio-card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.portfolio-card-tech .tech-tag {
+    background: #000000;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 2px solid #FF0000;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    transition: all 0.1s ease;
+    position: relative;
+}
+
+.portfolio-card:hover .portfolio-card-tech .tech-tag {
+    background: #FFFF00;
+    color: #000000;
+    border-color: #000000;
+    transform: rotate(calc(var(--random) * 10deg - 5deg));
+}
+
+.portfolio-card-tech .tech-tag:nth-child(odd):hover {
+    background: #00FF00;
+    transform: rotate(-5deg) scale(1.1);
+}
+
+.portfolio-card-tech .tech-tag:nth-child(even):hover {
+    background: #FF0000;
+    color: #FFFFFF;
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* ====================================
+   ENLACES DESTRUCTIVOS
+   ==================================== */
+
+.portfolio-card-links {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 3px solid #000000;
+    background: repeating-linear-gradient(90deg,
+            #FFFFFF,
+            #FFFFFF 10px,
+            #F0F0F0 10px,
+            #F0F0F0 20px);
+}
+
+.portfolio-card-links .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 3px solid;
+    background: none;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    flex: 1;
+    text-align: center;
+    transition: all 0.1s ease;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23FFFF00' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E"), pointer;
+}
+
+.portfolio-card-links .btn-outline {
+    color: #000000;
+    border-color: #000000;
+    background: transparent;
+    transform: rotate(-1deg);
+}
+
+.portfolio-card-links .btn-outline:hover {
+    background: #000000;
+    color: #FFFFFF;
+    transform: rotate(1deg) scale(1.05);
+    box-shadow: 3px 3px 0 #FF0000;
+}
+
+.portfolio-card-links .btn-secondary {
+    color: #FFFFFF;
+    border-color: #333333;
+    background: #333333;
+    transform: rotate(1deg);
+}
+
+.portfolio-card-links .btn-secondary:hover {
+    background: #00FF00;
+    color: #000000;
+    border-color: #000000;
+    transform: rotate(-1deg) scale(1.05);
+    box-shadow: -3px 3px 0 #FF0000;
+}
+
+/* Sin iconos */
+.portfolio-card-links .btn i {
+    display: none;
+}
+
+/* ====================================
+   EFECTOS ESPECIALES BRUTALES
+   ==================================== */
+
+/* Efecto de aparición agresivo */
+.portfolio-card:hover::after {
+    content: 'CLICK ME';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    background: #FF0000;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: 3px solid #000000;
+    animation: pulse-brutal 0.5s infinite;
+    z-index: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+}
+
+/* ====================================
+   ESTADOS BRUTALES
+   ==================================== */
+
+/* Estado de filtrado */
+.portfolio-card.filtering {
+    opacity: 0.3;
+    transform: scale(0.8) rotate(-10deg);
+    transition: all 0.3s ease;
+    filter: grayscale(100%) contrast(50%);
+}
+
+/* Animación de entrada */
+.portfolio-card.fade-in {
+    animation: brutal-entrance 0.8s ease-out;
+}
+
+/* Estado de carga agresivo */
+.portfolio-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 30px;
+    background: repeating-linear-gradient(45deg,
+            #000000,
+            #000000 20px,
+            #FF0000 20px,
+            #FF0000 40px);
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 8px solid #FFFF00;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #FFFFFF;
+    border-top: 5px solid #FFFF00;
+    border-radius: 0;
+    animation: brutal-spin 1s linear infinite;
+    transform: rotate(45deg);
+}
+
+/* ====================================
+   VARIACIONES POR CATEGORÍA
+   ==================================== */
+
+.portfolio-card[data-category="web-design"] .portfolio-card-category {
+    background: #FF0000;
+    color: #FFFFFF;
+    border-color: #000000;
+}
+
+.portfolio-card[data-category="landing-pages"] .portfolio-card-category {
+    background: #FFFF00;
+    color: #000000;
+    border-color: #FF0000;
+}
+
+.portfolio-card[data-category="web-apps"] .portfolio-card-category {
+    background: #00FF00;
+    color: #000000;
+    border-color: #FF0000;
+}
+
+.portfolio-card[data-category="pyme-solutions"] .portfolio-card-category {
+    background: #000000;
+    color: #FFFF00;
+    border-color: #00FF00;
+}
+
+/* ====================================
+   ANIMACIONES BRUTALES
+   ==================================== */
+
+@keyframes glitch-card {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1.05);
+    }
+
+    25% {
+        transform: rotate(1deg) scale(1.05) translate(-2px, -1px);
+    }
+
+    50% {
+        transform: rotate(-1deg) scale(1.05) translate(2px, 1px);
+    }
+
+    75% {
+        transform: rotate(0.5deg) scale(1.05) translate(-1px, 2px);
+    }
+}
+
+@keyframes chaos {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(2deg) scale(1.02);
+    }
+
+    50% {
+        transform: rotate(-2deg) scale(0.98);
+    }
+
+    75% {
+        transform: rotate(1deg) scale(1.01);
+    }
+}
+
+@keyframes blink-category {
+
+    0%,
+    90% {
+        opacity: 1;
+    }
+
+    95%,
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes title-glitch {
+
+    0%,
+    100% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-1px, 1px);
+    }
+
+    40% {
+        transform: translate(1px, -1px);
+    }
+
+    60% {
+        transform: translate(-1px, -1px);
+    }
+
+    80% {
+        transform: translate(1px, 1px);
+    }
+}
+
+@keyframes pulse-brutal {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(-15deg) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(-15deg) scale(1.1);
+    }
+}
+
+@keyframes brutal-entrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-45deg);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(-2deg);
+    }
+}
+
+@keyframes brutal-spin {
+    0% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
+/* ====================================
+   RESPONSIVE BRUTAL
+   ==================================== */
+
+@media (max-width: 768px) {
+    .portfolio-card-content {
+        padding: 15px;
+    }
+
+    .portfolio-card-image {
+        height: 200px;
+    }
+
+    .portfolio-card-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-card-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .portfolio-card-links .btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    .portfolio-card-overlay {
+        gap: 15px;
+    }
+
+    .portfolio-card:hover::after {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-card-content {
+        padding: 10px;
+    }
+
+    .portfolio-card-image {
+        height: 180px;
+    }
+
+    .portfolio-card-tech {
+        gap: 3px;
+    }
+
+    .portfolio-card-tech .tech-tag {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
+    .portfolio-card-category {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+}
+
+/* ====================================
+   EFECTOS DE CURSOR BRUTAL
+   ==================================== */
+
+.portfolio-card:hover {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25'%3E%3Crect width='25' height='25' fill='%23FF0000' stroke='%23000' stroke-width='3'/%3E%3Ctext x='12.5' y='18' text-anchor='middle' fill='%23FFFFFF' font-size='14' font-weight='bold'%3E!%3C/text%3E%3C/svg%3E"), pointer;
+}
+
+/* ====================================
+   SELECCIÓN DE TEXTO BRUTAL
+   ==================================== */
+
+.portfolio-card ::selection {
+    background: #FF0000;
+    color: #FFFF00;
+}
+
+.portfolio-card ::-moz-selection {
+    background: #FF0000;
+    color: #FFFF00;
+}
+
 /* ESTADÍSTICAS */
 .portfolio-stats {
     background: #FFFF00;
@@ -673,7 +1394,9 @@ body::before {
 
 .footer-section h3,
 .footer-section h4 {
-    color: #00FF00;
+    background: #00FF00;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-transform: uppercase;
     margin-bottom: 20px;
     font-size: 1.3rem;

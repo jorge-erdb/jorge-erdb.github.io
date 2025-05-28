@@ -862,7 +862,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupProjectNavigation();
     setupLazyLoading();
     setupKeyboardShortcuts();
-    setupParallaxEffect();
+
+    setupParallaxEffectBackground();
 
     // Manejar cambio de hash en URL
     window.addEventListener('hashchange', () => {

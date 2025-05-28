@@ -216,6 +216,7 @@ a {
     background-clip: text;
     animation: rainbow-shift 3s ease-in-out infinite;
     margin: 0;
+    margin-right: 40px;
 }
 
 @keyframes rainbow-shift {
@@ -470,6 +471,7 @@ a {
 
 .filter-button:hover,
 .filter-button.active {
+    background: none;
     color: var(--retro-primary);
     border-color: var(--retro-primary);
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
@@ -579,6 +581,967 @@ a {
 .portfolio-links .btn {
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
+}
+
+/* ==========================================================================
+   PORTFOLIO CARD - RETRO SYNTHWAVE STYLE
+   Viaje al futuro del pasado: CRT, Neón, Cyberpunk
+   ========================================================================== */
+
+.portfolio-card {
+    background: linear-gradient(135deg, var(--retro-bg-medium), var(--retro-bg-dark));
+    border: 1px solid var(--retro-primary);
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    will-change: transform;
+    animation: card-scan-lines 0.1s linear infinite;
+}
+
+/* Efecto de líneas de escaneo CRT */
+.portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 0, 255, 0.03) 2px,
+            rgba(255, 0, 255, 0.03) 4px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Grid cyberpunk en el fondo */
+.portfolio-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 0, 255, 0.05) 10px,
+            rgba(255, 0, 255, 0.05) 20px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes card-scan-lines {
+    0% {
+        filter: brightness(1) contrast(1.2) saturate(1.3);
+    }
+
+    98% {
+        filter: brightness(1) contrast(1.2) saturate(1.3);
+    }
+
+    99% {
+        filter: brightness(0.98) contrast(1.1) saturate(1.2);
+    }
+
+    100% {
+        filter: brightness(1) contrast(1.2) saturate(1.3);
+    }
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(255, 0, 255, 0.3),
+        0 0 0 1px var(--retro-secondary),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: var(--retro-secondary);
+    animation: card-hover-glitch 0.3s ease-out;
+}
+
+@keyframes card-hover-glitch {
+
+    0%,
+    100% {
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    25% {
+        transform: translateY(-10px) scale(1.02) translate(1px, -1px);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.02) translate(-1px, 1px);
+    }
+
+    75% {
+        transform: translateY(-10px) scale(1.02) translate(1px, 1px);
+    }
+}
+
+/* ==========================================================================
+   IMAGEN RETRO
+   ========================================================================== */
+
+.portfolio-card-image {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center,
+            var(--retro-primary)22 0%,
+            var(--retro-bg-dark) 70%);
+    border-bottom: 1px solid var(--retro-primary);
+}
+
+.portfolio-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.5) contrast(1.2) hue-rotate(0deg);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-card:hover .portfolio-card-image img {
+    filter: saturate(2) contrast(1.4) hue-rotate(15deg);
+    animation: retro-image-glitch 0.5s ease-out;
+}
+
+@keyframes retro-image-glitch {
+
+    0%,
+    100% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+}
+
+/* Placeholder retro-futurista */
+.portfolio-card-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 80%, var(--retro-primary)22 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--retro-secondary)22 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, var(--retro-tertiary)22 0%, transparent 50%),
+        var(--retro-bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--retro-primary);
+    font-size: 3rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    text-shadow: var(--retro-glow);
+    position: relative;
+    animation: placeholder-pulse 2s ease-in-out infinite;
+}
+
+@keyframes placeholder-pulse {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 5px currentColor,
+            0 0 10px currentColor,
+            0 0 15px currentColor;
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px currentColor,
+            0 0 20px currentColor,
+            0 0 30px currentColor,
+            0 0 40px var(--retro-primary);
+    }
+}
+
+.portfolio-card-placeholder::before {
+    content: 'NO SIGNAL';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--retro-bg-dark);
+    color: var(--retro-secondary);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid var(--retro-secondary);
+    animation: blink-signal 1s infinite;
+}
+
+@keyframes blink-signal {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0.3;
+    }
+}
+
+/* ==========================================================================
+   OVERLAY CYBERPUNK
+   ========================================================================== */
+
+.portfolio-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(45deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(255, 0, 255, 0.1) 50%,
+            rgba(0, 0, 0, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.portfolio-card:hover .portfolio-card-overlay {
+    opacity: 1;
+}
+
+/* Efecto de escaneo en overlay */
+.portfolio-card-overlay::before {
+    content: '>>> ACCESS GRANTED <<<';
+    position: absolute;
+    top: 0px;
+    left: 12.5%;
+    /*transform: translateX(-50%); */
+    background: var(--retro-bg-dark);
+    color: var(--retro-text-light);
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid var(--retro-text-light);
+    animation: access-blink 0.5s ease-in-out 3;
+}
+
+@keyframes access-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+        color: var(--retro-text-light);
+        border-color: var(--retro-text-light);
+    }
+
+    50% {
+        opacity: 0.7;
+        color: var(--retro-primary);
+        border-color: var(--retro-primary);
+    }
+}
+
+.portfolio-card-overlay .btn {
+    font-family: 'Orbitron', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 24px;
+    border: 2px solid;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    transform: translateY(20px);
+}
+
+.portfolio-card:hover .portfolio-card-overlay .btn {
+    transform: translateY(0);
+}
+
+.portfolio-card-overlay .btn:first-child {
+    transition-delay: 0.1s;
+}
+
+.portfolio-card-overlay .btn:last-child {
+    transition-delay: 0.2s;
+}
+
+/* Efecto de barrido en botones */
+.portfolio-card-overlay .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.portfolio-card-overlay .btn:hover::before {
+    left: 100%;
+}
+
+.portfolio-card-overlay .btn-outline {
+    color: var(--retro-text-light);
+    border-color: var(--retro-text-light);
+}
+
+.portfolio-card-overlay .btn-outline:hover {
+    background: var(--retro-text-light);
+    color: var(--retro-bg-dark);
+    box-shadow: 0 0 20px var(--retro-text-light);
+    text-shadow: none;
+}
+
+.portfolio-card-overlay .btn-primary {
+    background: linear-gradient(45deg, var(--retro-primary), var(--retro-secondary), var(--retro-tertiary));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-color: var(--retro-primary);
+}
+
+.portfolio-card-overlay .btn-primary:hover {
+    background: var(--retro-primary);
+    background: linear-gradient(45deg, var(--retro-primary), var(--retro-secondary), var(--retro-tertiary));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    box-shadow:
+        0 0 20px var(--retro-primary),
+        inset 0 0 20px rgba(255, 0, 255, 0.2);
+    text-shadow: none;
+}
+
+/* Sin iconos - mantener estética retro */
+.portfolio-card-overlay .btn i {
+    display: none;
+}
+
+/* ==========================================================================
+   CONTENIDO FUTURISTA
+   ========================================================================== */
+
+.portfolio-card-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--retro-bg-medium), var(--retro-bg-dark));
+}
+
+/* Categoría con estilo terminal */
+.portfolio-card-category {
+    display: inline-block;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--retro-secondary);
+    color: var(--retro-secondary);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    width: fit-content;
+    position: relative;
+    animation: category-glow 3s ease-in-out infinite;
+}
+
+@keyframes category-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px var(--retro-secondary);
+        color: var(--retro-secondary);
+    }
+
+    50% {
+        box-shadow: 0 0 15px var(--retro-secondary);
+        color: var(--retro-primary);
+        border-color: var(--retro-primary);
+    }
+}
+
+.portfolio-card-category::before {
+    content: '>';
+    margin-right: 5px;
+    color: var(--retro-primary);
+    font-weight: bold;
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Título con efecto neón */
+.portfolio-card-content h3 {
+    color: var(--retro-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.3;
+    text-shadow: 0 0 10px var(--retro-primary);
+    transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-card-content h3 {
+    color: var(--retro-secondary);
+    text-shadow:
+        0 0 5px currentColor,
+        0 0 10px currentColor,
+        0 0 15px currentColor;
+    animation: title-flicker 0.5s ease-out;
+}
+
+@keyframes title-flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Descripción con tipografía monospace */
+.portfolio-card-content p {
+    color: var(--retro-text-light);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    font-family: 'Share Tech Mono', monospace;
+    flex: 1;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   TECNOLOGÍAS RETRO-FUTURISTAS
+   ========================================================================== */
+
+.portfolio-card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-card-tech .tech-tag {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--retro-secondary);
+    color: var(--retro-secondary);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card-tech .tech-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--retro-secondary), transparent);
+    transition: left 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-card-tech .tech-tag {
+    color: var(--retro-primary);
+    border-color: var(--retro-primary);
+    background: rgba(255, 0, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.portfolio-card:hover .portfolio-card-tech .tech-tag::before {
+    left: 100%;
+}
+
+.portfolio-card-tech .tech-tag:nth-child(odd):hover {
+    background: rgba(255, 255, 0, 0.1);
+    color: var(--retro-tertiary);
+    border-color: var(--retro-tertiary);
+}
+
+.portfolio-card-tech .tech-tag:nth-child(even):hover {
+    background: rgba(255, 69, 0, 0.1);
+    color: var(--retro-accent);
+    border-color: var(--retro-accent);
+}
+
+/* ==========================================================================
+   ENLACES CON ESTILO TERMINAL
+   ========================================================================== */
+
+.portfolio-card-links {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+.portfolio-card-links .btn {
+    font-family: 'Orbitron', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.portfolio-card-links .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.portfolio-card-links .btn:hover::before {
+    left: 100%;
+}
+
+.portfolio-card-links .btn-outline {
+    color: var(--retro-text-light);
+    border-color: var(--retro-text-light);
+}
+
+.portfolio-card-links .btn-outline:hover {
+    background: var(--retro-text-light);
+    color: var(--retro-bg-dark);
+    box-shadow: 0 0 20px var(--retro-text-light);
+}
+
+.portfolio-card-links .btn-secondary {
+    color: var(--retro-secondary);
+    border-color: var(--retro-secondary);
+}
+
+.portfolio-card-links .btn-secondary:hover {
+    background: var(--retro-secondary);
+    color: var(--retro-bg-dark);
+    box-shadow:
+        0 0 20px var(--retro-secondary),
+        inset 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Sin iconos */
+.portfolio-card-links .btn i {
+    display: none;
+}
+
+/* ==========================================================================
+   ESTADOS ESPECIALES RETRO
+   ========================================================================== */
+
+/* Estado de filtrado con glitch */
+.portfolio-card.filtering {
+    opacity: 0.3;
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+    filter: grayscale(100%) contrast(50%);
+}
+
+/* Animación de entrada futurista */
+.portfolio-card.fade-in {
+    animation: retro-entrance 0.8s ease-out;
+}
+
+@keyframes retro-entrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+        filter: brightness(2) blur(5px);
+    }
+
+    50% {
+        opacity: 0.8;
+        filter: brightness(1.5) blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: brightness(1) blur(0);
+    }
+}
+
+/* Estado de carga con terminal retro */
+.portfolio-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    background:
+        radial-gradient(ellipse at center, var(--retro-bg-medium) 0%, var(--retro-bg-dark) 70%);
+    border: 1px solid var(--retro-primary);
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--retro-text-light);
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.portfolio-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 65, 0.03) 2px,
+            rgba(0, 255, 65, 0.03) 4px);
+    animation: loading-scanlines 0.1s linear infinite;
+}
+
+@keyframes loading-scanlines {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--retro-bg-medium);
+    border-top: 3px solid var(--retro-primary);
+    border-radius: 50%;
+    animation: retro-spin 1s linear infinite;
+    box-shadow: 0 0 20px var(--retro-primary);
+}
+
+@keyframes retro-spin {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 0 0 20px var(--retro-primary);
+    }
+
+    25% {
+        box-shadow: 0 0 20px var(--retro-secondary);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--retro-tertiary);
+    }
+
+    75% {
+        box-shadow: 0 0 20px var(--retro-accent);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 0 0 20px var(--retro-primary);
+    }
+}
+
+/* ==========================================================================
+   VARIACIONES POR CATEGORÍA CYBERPUNK
+   ========================================================================== */
+
+.portfolio-card[data-category="web-design"] .portfolio-card-category {
+    background: rgba(255, 0, 255, 0.1);
+    border-color: var(--retro-primary);
+    color: var(--retro-primary);
+}
+
+.portfolio-card[data-category="landing-pages"] .portfolio-card-category {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: var(--retro-secondary);
+    color: var(--retro-secondary);
+}
+
+.portfolio-card[data-category="web-apps"] .portfolio-card-category {
+    background: rgba(255, 255, 0, 0.1);
+    border-color: var(--retro-tertiary);
+    color: var(--retro-tertiary);
+}
+
+.portfolio-card[data-category="pyme-solutions"] .portfolio-card-category {
+    background: rgba(255, 69, 0, 0.1);
+    border-color: var(--retro-accent);
+    color: var(--retro-accent);
+}
+
+/* ==========================================================================
+   RESPONSIVE RETRO
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .portfolio-card-content {
+        padding: 1rem;
+    }
+
+    .portfolio-card-image {
+        height: 180px;
+    }
+
+    .portfolio-card-content h3 {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .portfolio-card-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .portfolio-card-links .btn {
+        width: 100%;
+    }
+
+    .portfolio-card-overlay {
+        gap: 0.8rem;
+    }
+
+    .portfolio-card-tech {
+        gap: 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-card-content {
+        padding: 0.8rem;
+    }
+
+    .portfolio-card-image {
+        height: 160px;
+    }
+
+    .portfolio-card-tech .tech-tag {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .portfolio-card-category {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .portfolio-card-overlay .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================================================
+   EFECTOS ESPECIALES ADICIONALES
+   ========================================================================== */
+
+/* Efecto de ruido digital */
+.portfolio-card:hover::before {
+    animation: digital-noise 0.1s infinite linear;
+}
+
+@keyframes digital-noise {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 4px 4px;
+    }
+}
+
+/* Efecto de terminal en hover extremo */
+.portfolio-card:hover .portfolio-card-content {
+    animation: terminal-flicker 0.15s infinite alternate;
+}
+
+@keyframes terminal-flicker {
+    0% {
+        opacity: 1;
+    }
+
+    98% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Radar sweep effect para categorías */
+.portfolio-card-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 255, 255, 0.4),
+            transparent);
+    animation: radar-sweep 3s infinite;
+}
+
+@keyframes radar-sweep {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* ==========================================================================
+   UTILIDADES CYBERPUNK
+   ========================================================================== */
+
+/* Efecto de holográfico */
+.portfolio-card-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 0, 255, 0.1),
+            transparent);
+    transition: left 0.6s ease;
+    z-index: 3;
+}
+
+.portfolio-card-shine:hover::before {
+    left: 100%;
+}
+
+/* Selección de texto retro */
+.portfolio-card ::selection {
+    background: var(--retro-primary);
+    color: var(--retro-bg-dark);
+    text-shadow: none;
+}
+
+.portfolio-card ::-moz-selection {
+    background: var(--retro-primary);
+    color: var(--retro-bg-dark);
+    text-shadow: none;
+}
+
+/* Focus states retro */
+.portfolio-card:focus {
+    outline: 2px solid var(--retro-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(255, 0, 255, 0.3);
+}
+
+.portfolio-card-links .btn:focus {
+    outline: 1px solid var(--retro-secondary);
+    outline-offset: 1px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   MODO PRESENTACIÓN CYBERPUNK
+   ========================================================================== */
+
+.presentation-mode .portfolio-card {
+    transform: scale(0.98);
+    transition: all 0.5s ease;
+}
+
+.presentation-mode .portfolio-card:hover {
+    transform: scale(1.02) translateY(-10px);
+}
+
+/* Reduce motion para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+
+    .portfolio-card,
+    .portfolio-card *,
+    .portfolio-card::before,
+    .portfolio-card::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 /* ==========================================================================
@@ -842,14 +1805,18 @@ a {
 }
 
 .footer-section h3 {
-    color: var(--retro-primary);
+    background: var(--retro-primary);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 1.2rem;
     margin-bottom: 1rem;
     text-shadow: 0 0 10px currentColor;
 }
 
 .footer-section h4 {
-    color: var(--retro-secondary);
+    background: var(--retro-secondary);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 1rem;
     margin-bottom: 0.8rem;
 }
