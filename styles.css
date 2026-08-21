@@ -1047,6 +1047,25 @@ body {
     line-height: 1.7;
 }
 
+.lab-attribution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    margin: -3rem auto 4rem;
+    text-align: center;
+    color: var(--text-accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.lab-attribution i {
+    color: #45B69C;
+}
+
 .lab-group-title {
     display: flex;
     align-items: center;
