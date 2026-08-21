@@ -1007,6 +1007,302 @@ body {
     min-height: 120px;
 }
 
+/* ==========================================================
+   Laboratorio — Proyecto de Maestría
+   ========================================================== */
+.lab {
+    padding: 120px 0;
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.lab::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 60vw;
+    height: 60vw;
+    background: var(--gradient-holographic);
+    opacity: 0.06;
+    filter: blur(120px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.lab .container {
+    position: relative;
+    z-index: 1;
+}
+
+.lab-intro {
+    max-width: 820px;
+    margin: -2rem auto 4rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.lab-group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lab-group-title i {
+    color: #21D19F;
+    font-size: 1.2rem;
+}
+
+.lab-group-title:not(:first-of-type) {
+    margin-top: 5rem;
+}
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.lab-card,
+.lab-featured {
+    background: var(--blur-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    padding: 2.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-card::before,
+.lab-featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-holographic);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.lab-card:hover::before,
+.lab-featured:hover::before {
+    opacity: 1;
+}
+
+.lab-card:hover,
+.lab-featured:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-dark);
+}
+
+.lab-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.lab-icon {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 18px;
+    background: var(--gradient-holographic);
+    color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--glow-secondary);
+}
+
+.lab-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #21D19F;
+    background: rgba(33, 209, 159, 0.1);
+    border: 1px solid rgba(33, 209, 159, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.lab-card h4,
+.lab-featured h4 {
+    font-size: 1.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.lab-desc {
+    color: var(--text-secondary);
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+}
+
+.lab-desc em {
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+.lab-stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: auto;
+}
+
+.lab-stack li {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+}
+
+.lab-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.btn-sm {
+    padding: 12px 26px;
+    font-size: 0.75rem;
+}
+
+.lab-note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-accent);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.lab-note i {
+    color: #45B69C;
+}
+
+/* Tarjeta destacada — aplicación de negocio */
+.lab-featured {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 3.5rem;
+}
+
+.lab-featured .lab-card-top {
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.lab-featured .lab-stack {
+    margin-top: 0;
+}
+
+.lab-featured-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .lab-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lab-featured {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .lab {
+        padding: 80px 0;
+    }
+
+    .lab-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-card,
+    .lab-featured {
+        padding: 2rem 1.5rem;
+    }
+
+    .lab-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lab-actions .btn {
+        min-width: 0;
+        text-align: center;
+    }
+
+    .lab-group-title {
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+
+    .lab-note {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .lab-card-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .lab-card h4,
+    .lab-featured h4 {
+        font-size: 1.6rem;
+    }
+}
+
 /* Footer */
 .footer {
     background: var(--bg-secondary);

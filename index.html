@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Erdmann - Hub Profesional de Proyectos Digitales</title>
     <meta name="description"
-        content="Especialista en Desarrollo Web & Estrategias de Digitalización para PyMEs. Transformando ideas en soluciones digitales.">
+        content="Especialista en Desarrollo Web & Estrategias de Digitalización para PyMEs. Videojuegos en navegador y aplicaciones de analítica construidos con asistencia de IA.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -38,6 +38,7 @@
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#inicio" class="nav-link active">Inicio</a></li>
                     <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#laboratorio" class="nav-link">Laboratorio</a></li>
                     <li><a href="#servicios" class="nav-link">Servicios</a></li>
                     <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
@@ -60,7 +61,7 @@
                 <p class="hero-subtitle">Especialista en Desarrollo Web & Estrategias de Digitalización para PyMEs</p>
                 <div class="hero-buttons">
                     <a href="#proyectos" class="btn btn-primary">Explorar Proyectos</a>
-                    <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                    <a href="#laboratorio" class="btn btn-secondary">Ver Laboratorio</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -234,6 +235,124 @@
         </div>
     </section>
 
+    <!-- Laboratorio Section -->
+    <section id="laboratorio" class="lab">
+        <div class="container">
+            <h2 class="section-title">Laboratorio</h2>
+            <p class="section-subtitle">Proyecto de Maestría — Desarrollo Asistido por IA</p>
+            <p class="lab-intro">Cuatro aplicaciones construidas de principio a fin con asistencia de modelos de
+                lenguaje: tres videojuegos que exploran los límites del navegador sin motores ni dependencias, y una
+                plataforma de analítica pensada para operar dentro de la empresa.</p>
+
+            <h3 class="lab-group-title"><i class="fas fa-gamepad"></i> Videojuegos</h3>
+            <div class="lab-grid">
+
+                <article class="lab-card">
+                    <div class="lab-card-top">
+                        <span class="lab-icon"><i class="fas fa-crosshairs"></i></span>
+                        <span class="lab-tag">Bullet Hell Roguelite</span>
+                    </div>
+                    <h4>Abyss Engine</h4>
+                    <p class="lab-desc">Desciende por una mazmorra generada proceduralmente y derrota al jefe que
+                        guarda cada piso para abrir el camino hacia abajo. Diez mejoras que se draftean de tres en tres
+                        al subir de nivel, tres tipos de enemigo y una dificultad que nunca deja de escalar.</p>
+                    <ul class="lab-stack">
+                        <li>JavaScript</li>
+                        <li>Canvas 2D</li>
+                        <li>Web Audio</li>
+                        <li>Sin dependencias</li>
+                    </ul>
+                    <div class="lab-actions">
+                        <a href="/abyss-engine/" class="btn btn-primary btn-sm" target="_blank"
+                            rel="noopener">Jugar</a>
+                        <a href="https://github.com/jorge-erdb/abyss-engine" class="btn btn-outline btn-sm">Código</a>
+                    </div>
+                </article>
+
+                <article class="lab-card">
+                    <div class="lab-card-top">
+                        <span class="lab-icon"><i class="fas fa-bug"></i></span>
+                        <span class="lab-tag">Plataformas Vertical</span>
+                    </div>
+                    <h4>Bug Free</h4>
+                    <p class="lab-desc">Un juego sobre <em>vibe coding</em>: eres un LLM escalando desde un archivo
+                        vacío hasta una app desplegada, y los bugs te matan. Incluye modo campaña por niveles y modo
+                        infinito, con controles táctiles para jugar desde el teléfono.</p>
+                    <ul class="lab-stack">
+                        <li>ES Modules</li>
+                        <li>Canvas 2D</li>
+                        <li>Táctil</li>
+                        <li>Suite de pruebas</li>
+                    </ul>
+                    <div class="lab-actions">
+                        <a href="/bug-free/" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Jugar</a>
+                        <a href="https://github.com/jorge-erdb/bug-free" class="btn btn-outline btn-sm">Código</a>
+                    </div>
+                </article>
+
+                <article class="lab-card">
+                    <div class="lab-card-top">
+                        <span class="lab-icon"><i class="fas fa-fire"></i></span>
+                        <span class="lab-tag">Plataformas de Precisión</span>
+                    </div>
+                    <h4>Emberfall</h4>
+                    <p class="lab-desc">Movimiento de precisión al estilo Celeste — salto de altura variable, deslizado
+                        y salto en pared, dash en ocho direcciones — sobre un gauntlet que lleva la cuenta exacta de
+                        cada una de tus muertes. Va a intentar matarte.</p>
+                    <ul class="lab-stack">
+                        <li>JavaScript</li>
+                        <li>Canvas 2D</li>
+                        <li>Paso fijo</li>
+                        <li>Física propia</li>
+                    </ul>
+                    <div class="lab-actions">
+                        <a href="/emberfall/" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Jugar</a>
+                        <a href="https://github.com/jorge-erdb/emberfall" class="btn btn-outline btn-sm">Código</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <h3 class="lab-group-title"><i class="fas fa-chart-line"></i> Aplicación de Negocio</h3>
+            <div class="lab-featured">
+                <div class="lab-featured-info">
+                    <div class="lab-card-top">
+                        <span class="lab-icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="lab-tag">Analítica SaaS</span>
+                    </div>
+                    <h4>Nova Analytics</h4>
+                    <p class="lab-desc">Plataforma de analítica whitelabel para dar seguimiento operativo a la empresa:
+                        landing pública, autenticación por correo y contraseña, y un dashboard que consume datos reales.
+                        Las fuentes de datos se conectan desde la propia interfaz, que emite una llave de API; los
+                        eventos enviados a esa llave viajan por una Edge Function, se consolidan y aparecen en las
+                        gráficas en segundos, sin recargar la página.</p>
+                    <ul class="lab-stack">
+                        <li>React 19</li>
+                        <li>Tailwind CSS</li>
+                        <li>Supabase</li>
+                        <li>React Query</li>
+                        <li>ApexCharts</li>
+                        <li>Vercel</li>
+                    </ul>
+                    <div class="lab-actions">
+                        <a href="https://horizon-tailwind-react-theta.vercel.app/" class="btn btn-primary btn-sm">Abrir
+                            Aplicación</a>
+                        <a href="https://github.com/jorge-erdb/horizon-tailwind-react"
+                            class="btn btn-outline btn-sm">Código</a>
+                    </div>
+                    <p class="lab-note"><i class="fas fa-circle-info"></i> Requiere crear una cuenta gratuita. El
+                        dashboard abre con datos de demostración ya cargados.</p>
+                </div>
+                <div class="lab-featured-visual">
+                    <div class="mockup-container">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Servicios Section -->
     <section id="servicios" class="services">
         <div class="container">
@@ -400,6 +519,7 @@
                     <h4>Proyectos</h4>
                     <ul>
                         <li><a href="#freelance">Desarrollo Freelance</a></li>
+                        <li><a href="#laboratorio">Laboratorio</a></li>
                         <li><a href="https://horizontec.mx/">Horizontes Tecnológicos</a></li>
                         <li><a href="https://www.exdi.mx/">Extensionistas Digitales</a></li>
                     </ul>

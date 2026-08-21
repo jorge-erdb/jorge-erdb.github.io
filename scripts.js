@@ -308,7 +308,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .project-card, .social-card, .contact-item, .skill-item');
+    const animatedElements = document.querySelectorAll('.service-card, .project-card, .lab-card, .lab-featured, .social-card, .contact-item, .skill-item');
     animatedElements.forEach(el => observer.observe(el));
 });
 
