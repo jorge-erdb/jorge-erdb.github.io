@@ -794,6 +794,7 @@ body {
 .profile-placeholder {
     width: 350px;
     height: 350px;
+    max-width: 100%;
     background: var(--gradient-holographic);
     border-radius: 50%;
     display: flex;
@@ -1530,6 +1531,14 @@ body {
         grid-template-columns: 1fr;
     }
 
+    /* El cuadro rota, así que su caja envolvente crece hasta lado*√2.
+       Lo reducimos para que no desborde el viewport en horizontal. */
+    .profile-placeholder {
+        width: 260px;
+        height: 260px;
+        font-size: 6rem;
+    }
+
     .hero-buttons,
     .project-buttons {
         justify-content: center;
@@ -1605,6 +1614,12 @@ body {
 
     .contact-item {
         padding: 1.5rem;
+    }
+
+    .profile-placeholder {
+        width: 200px;
+        height: 200px;
+        font-size: 4.5rem;
     }
 }
 
