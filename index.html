@@ -14,11 +14,16 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Erdmann - Hub Profesional de Proyectos Digitales</title>
+    <title>Jorge Erdmann — Desarrollo, IA y Ciberseguridad</title>
     <meta name="description"
-        content="Especialista en Desarrollo Web & Estrategias de Digitalización para PyMEs. Videojuegos en navegador y aplicaciones de analítica construidos con asistencia de IA.">
+        content="Ingeniero en Sistemas Computacionales y AI Agent Engineer. Software construido con asistencia de IA, en transición hacia la ciberseguridad: pentesting y análisis forense.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,532 +31,561 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQKG9LKK" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <!-- Header/Navigation -->
     <header class="header">
         <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <h2>Jorge Erdmann</h2>
-                    <span>Digital Solutions</span>
-                </div>
+            <a href="#inicio" class="nav-logo">
+                <span class="nav-logo-name">Jorge Erdmann</span>
+                <span class="nav-logo-tag">dev · ai · sec</span>
+            </a>
 
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-                    <li><a href="#laboratorio" class="nav-link">Laboratorio</a></li>
-                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                </ul>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio" class="nav-link active" data-i18n="nav.home">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav-link" data-i18n="nav.about">Sobre Mí</a></li>
+                <li><a href="#laboratorio" class="nav-link" data-i18n="nav.lab">Laboratorio</a></li>
+                <li><a href="#ciberseguridad" class="nav-link" data-i18n="nav.security">Ciberseguridad</a></li>
+                <li><a href="#proyectos" class="nav-link" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="#contacto" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
 
-                <div class="nav-toggle" id="nav-toggle">
+            <div class="nav-actions">
+                <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Cambiar idioma / Switch language">
+                    <span data-lang="es">ES</span><span data-lang="en">EN</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menú" aria-expanded="false"
+                    aria-controls="nav-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Transformando Ideas en <span class="highlight">Soluciones Digitales</span></h1>
-                <p class="hero-subtitle">Especialista en Desarrollo Web & Estrategias de Digitalización para PyMEs</p>
-                <div class="hero-buttons">
-                    <a href="#proyectos" class="btn btn-primary">Explorar Proyectos</a>
-                    <a href="#laboratorio" class="btn btn-secondary">Ver Laboratorio</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-elements">
-                    <div class="floating-card">
-                        <i class="fas fa-code"></i>
-                        <span>Desarrollo Web</span>
-                    </div>
-                    <div class="floating-card">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Digitalización</span>
-                    </div>
-                    <div class="floating-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Consultoría</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Metodología -->
-    <section class="methodology">
-        <div class="container">
-            <h2 class="section-title">Cómo Trabajo</h2>
-            <p class="section-subtitle">Metodología Integrada para la Transformación Digital</p>
-            <div class="methodology-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Diagnóstico</h3>
-                    <p>Identifico oportunidades de digitalización</p>
-                    <span class="step-project">Extensionistas Digitales</span>
-                </div>
-                <div class="step-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Estrategia</h3>
-                    <p>Defino la ruta de transformación</p>
-                    <span class="step-project">Horizontes Tecnológicos</span>
-                </div>
-                <div class="step-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Desarrollo</h3>
-                    <p>Creo la solución digital</p>
-                    <span class="step-project">Desarrollo Freelance</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proyectos Section -->
-    <section id="proyectos" class="projects">
-        <div class="container">
-            <h2 class="section-title">Mis Proyectos</h2>
-            <p class="section-subtitle">Tres líneas de trabajo que se complementan para ofrecer soluciones integrales
-            </p>
-
-            <!-- Project Tabs -->
-            <div class="project-tabs">
-                <button class="tab-button active" data-tab="freelance">
-                    <i class="fas fa-code"></i>
-                    Freelance
-                </button>
-                <button class="tab-button" data-tab="horizontes">
-                    <i class="fas fa-industry"></i>
-                    HorizonTech
-                </button>
-                <button class="tab-button" data-tab="extensionistas">
-                    <i class="fas fa-search"></i>
-                    Extensionistas
-                </button>
-            </div>
-
-            <!-- Project Content -->
-            <div class="project-content">
-                <!-- Freelance Tab -->
-                <div class="tab-panel active" id="freelance">
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Desarrollo Web Personalizado</h3>
-                            <p class="project-description">Diseño y desarrollo de sitios web profesionales usando código
-                                limpio o plataformas web builders</p>
-                            <ul class="project-features">
-                                <li><i class="fas fa-check"></i> Diseño web responsive</li>
-                                <li><i class="fas fa-check"></i> Desarrollo HTML/CSS/JavaScript</li>
-                                <li><i class="fas fa-check"></i> Web builders profesionales</li>
-                                <li><i class="fas fa-check"></i> Optimización SEO</li>
-                            </ul>
-                            <div class="project-buttons">
-                                <a href="galeria/index.html" class="btn btn-outline">Galeria de Estilos</a>
-                                <a href="https://es.fiverr.com/s/vvaLgX1" class="btn btn-primary">Fiverr Profile</a>
-                                <a href="https://www.upwork.com/freelancers/~01751425cee568ae92?mp_source=share"
-                                    class="btn btn-primary">Upwork Profile</a>
-                            </div>
-                        </div>
-                        <div class="project-visual">
-                            <div class="mockup-container">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                        </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <p class="eyebrow" data-i18n="hero.eyebrow">Ingeniero en Sistemas Computacionales · AI Agent
+                        Engineer</p>
+                    <h1 class="hero-title" data-i18n="hero.title">Construyo software con IA. <span
+                            class="highlight">Ahora aprendo a romperlo.</span></h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Desarrollador y AI Agent Engineer en transición
+                        hacia la ciberseguridad: pruebas de penetración y análisis forense digital.</p>
+                    <div class="hero-buttons">
+                        <a href="#laboratorio" class="btn btn-primary" data-i18n="hero.ctaLab">Ver Laboratorio</a>
+                        <a href="#contacto" class="btn btn-secondary" data-i18n="hero.ctaContact">Contactar</a>
                     </div>
                 </div>
 
-                <!-- Horizontes Tab -->
-                <div class="tab-panel" id="horizontes">
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Desarrollo de Soluciones Digitales para PyMEs</h3>
-                            <p class="project-description">Liderando la transformación digital mediante el desarrollo de
-                                soluciones tecnológicas integrales</p>
-                            <div class="project-highlight">
-                                <strong>Enfoque:</strong> De Procesos Tradicionales a Ecosistemas Inteligentes
-                            </div>
-                            <ul class="project-features">
-                                <li><i class="fas fa-check"></i> Digitalización de documentos</li>
-                                <li><i class="fas fa-check"></i> Automatización de procesos</li>
-                                <li><i class="fas fa-check"></i> Transformación de procesos</li>
-                                <li><i class="fas fa-check"></i> Seguridad de la información</li>
-                            </ul>
-                            <div class="project-buttons">
-                                <a href="https://horizontec.mx/" class="btn btn-primary" target="_blank">Visitar
-                                    HorizonteC.mx</a>
-                                <a href="enConstruccion/index.html" class="btn btn-outline">Conocer Metodología</a>
-                                <a href="#contacto" class="btn btn-secondary">Solicitar Consulta</a>
-                            </div>
-                        </div>
-                        <div class="project-visual">
-                            <div class="mockup-container">
-                                <i class="fas fa-industry"></i>
-                            </div>
-                        </div>
+                <div class="terminal" aria-hidden="true">
+                    <div class="terminal-bar">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                        <span class="terminal-title">jorge@erdb: ~</span>
                     </div>
-                </div>
-
-                <!-- Extensionistas Tab -->
-                <div class="tab-panel" id="extensionistas">
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Consultoría en Oportunidades de Digitalización</h3>
-                            <p class="project-description">Identificando áreas de oportunidad digital a través del Mapa
-                                de Ruta de Transformación Digital</p>
-                            <div class="project-highlight">
-                                <strong>Mi Rol:</strong> Estratega de Marketing Digital
-                            </div>
-                            <ul class="project-features">
-                                <li><i class="fas fa-check"></i> Diagnóstico digital integral</li>
-                                <li><i class="fas fa-check"></i> Mapa de ruta personalizado</li>
-                                <li><i class="fas fa-check"></i> Identificación de oportunidades</li>
-                                <li><i class="fas fa-check"></i> Estrategias de implementación</li>
-                            </ul>
-                            <div class="project-buttons">
-                                <a href="https://www.exdi.mx/" class="btn btn-primary" target="_blank">Visitar
-                                    EXDI.mx</a>
-                                <a href="enConstruccion/index.html" class="btn btn-outline">Descargar Mapa de Ruta</a>
-                                <a href="#contacto" class="btn btn-secondary">Agendar Diagnóstico</a>
-                            </div>
-                        </div>
-                        <div class="project-visual">
-                            <div class="mockup-container">
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </div>
+                    <div class="terminal-body">
+                        <p><span class="prompt">$</span> whoami</p>
+                        <p class="out" data-i18n="term.whoami">Ingeniero en Sistemas Computacionales</p>
+                        <p><span class="prompt">$</span> <span data-i18n="term.catNow">cat ahora.txt</span></p>
+                        <p class="out">→ AI Agent Engineer</p>
+                        <p class="out" data-i18n="term.masters">→ Maestría en curso</p>
+                        <p class="out" data-i18n="term.founder">→ Fundador de HorizonTec</p>
+                        <p><span class="prompt">$</span> <span data-i18n="term.lsLearning">ls aprendiendo/</span></p>
+                        <p class="out dirs" data-i18n="term.dirs">pentesting/ &nbsp;forense/ &nbsp;rust/</p>
+                        <p><span class="prompt">$</span> <span class="cursor"></span></p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Laboratorio Section -->
-    <section id="laboratorio" class="lab">
-        <div class="container">
-            <h2 class="section-title">Laboratorio</h2>
-            <p class="section-subtitle">Proyecto de Maestría — Desarrollo Asistido por IA</p>
-            <p class="lab-intro">Cuatro aplicaciones construidas de principio a fin con asistencia de modelos de
-                lenguaje: tres videojuegos que exploran los límites del navegador sin motores ni dependencias, y una
-                plataforma de analítica pensada para operar dentro de la empresa.</p>
-            <p class="lab-attribution"><i class="fas fa-microchip"></i> Desarrollado con asistencia de IA —
-                Claude, Qwen y Gemma</p>
+        <!-- Sobre Mí Section -->
+        <section id="sobre-mi" class="section about">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow">01 / <span data-i18n="about.eyebrow">sobre-mí</span></p>
+                    <h2 class="section-title" data-i18n="about.title">Sobre Mí</h2>
+                </header>
 
-            <h3 class="lab-group-title"><i class="fas fa-gamepad"></i> Videojuegos</h3>
-            <div class="lab-grid">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p data-i18n="about.p1">Soy Ingeniero en Sistemas Computacionales y trabajo como <strong>AI
+                                Agent Engineer</strong>, construyendo sistemas basados en agentes de IA. En paralelo
+                            curso una maestría y dirijo <strong>HorizonTec</strong>, mi propio emprendimiento de
+                            soluciones digitales para PyMEs.</p>
+                        <p data-i18n="about.p2">Mi siguiente paso es la <strong>ciberseguridad</strong>, en particular
+                            las pruebas de penetración y el análisis forense digital. Estoy en plena etapa de
+                            aprendizaje: resolviendo retos en TryHackMe y aprendiendo Rust con proyectos propios.</p>
 
-                <article class="lab-card">
-                    <div class="lab-card-top">
-                        <span class="lab-icon"><i class="fas fa-crosshairs"></i></span>
-                        <span class="lab-tag">Bullet Hell Roguelite</span>
+                        <div class="skills">
+                            <div class="skill-group">
+                                <h3><i class="fas fa-code"></i> <span data-i18n="skills.dev">Desarrollo</span></h3>
+                                <ul class="chips">
+                                    <li>JavaScript</li>
+                                    <li>HTML / CSS</li>
+                                    <li>React</li>
+                                    <li>Tailwind CSS</li>
+                                    <li>Supabase</li>
+                                    <li>TypeScript</li>
+                                    <li>Svelte</li>
+                                    <li>Python</li>
+                                    <li>FastAPI</li>
+                                    <li>SQL</li>
+                                    <li>Docker</li>
+                                </ul>
+                            </div>
+                            <div class="skill-group">
+                                <h3><i class="fas fa-robot"></i> <span data-i18n="skills.ai">IA</span></h3>
+                                <ul class="chips">
+                                    <li data-i18n="skills.agents">Agentes de IA</li>
+                                    <li data-i18n="skills.localLlm">LLMs locales</li>
+                                    <li>RAG</li>
+                                    <li data-i18n="skills.aiDev">Desarrollo asistido por IA</li>
+                                    <li>Claude · Qwen · Gemma</li>
+                                </ul>
+                            </div>
+                            <div class="skill-group">
+                                <h3><i class="fas fa-user-secret"></i> <span data-i18n="skills.learning">Aprendiendo</span>
+                                </h3>
+                                <ul class="chips chips-learning">
+                                    <li data-i18n="skills.pentest">Pentesting</li>
+                                    <li data-i18n="skills.forensics">Forense digital</li>
+                                    <li>TryHackMe</li>
+                                    <li>Rust</li>
+                                </ul>
+                            </div>
+                            <div class="skill-group">
+                                <h3><i class="fas fa-language"></i> <span data-i18n="skills.languages">Idiomas</span>
+                                </h3>
+                                <ul class="chips">
+                                    <li data-i18n="skills.spanish">Español</li>
+                                    <li data-i18n="skills.english">Inglés</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <h4>Abyss Engine</h4>
-                    <p class="lab-desc">Desciende por una mazmorra generada proceduralmente y derrota al jefe que
-                        guarda cada piso para abrir el camino hacia abajo. Diez mejoras que se draftean de tres en tres
-                        al subir de nivel, tres tipos de enemigo y una dificultad que nunca deja de escalar.</p>
-                    <ul class="lab-stack">
-                        <li>JavaScript</li>
-                        <li>Canvas 2D</li>
-                        <li>Web Audio</li>
-                        <li>Sin dependencias</li>
-                    </ul>
-                    <div class="lab-actions">
-                        <a href="/abyss-engine/" class="btn btn-primary btn-sm" target="_blank"
-                            rel="noopener">Jugar</a>
-                        <a href="https://github.com/jorge-erdb/abyss-engine" class="btn btn-outline btn-sm">Código</a>
-                    </div>
-                </article>
 
-                <article class="lab-card">
-                    <div class="lab-card-top">
-                        <span class="lab-icon"><i class="fas fa-bug"></i></span>
-                        <span class="lab-tag">Plataformas Vertical</span>
-                    </div>
-                    <h4>Bug Free</h4>
-                    <p class="lab-desc">Un juego sobre <em>vibe coding</em>: eres un LLM escalando desde un archivo
-                        vacío hasta una app desplegada, y los bugs te matan. Incluye modo campaña por niveles y modo
-                        infinito, con controles táctiles para jugar desde el teléfono.</p>
-                    <ul class="lab-stack">
-                        <li>ES Modules</li>
-                        <li>Canvas 2D</li>
-                        <li>Táctil</li>
-                        <li>Suite de pruebas</li>
-                    </ul>
-                    <div class="lab-actions">
-                        <a href="/bug-free/" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Jugar</a>
-                        <a href="https://github.com/jorge-erdb/bug-free" class="btn btn-outline btn-sm">Código</a>
-                    </div>
-                </article>
-
-                <article class="lab-card">
-                    <div class="lab-card-top">
-                        <span class="lab-icon"><i class="fas fa-fire"></i></span>
-                        <span class="lab-tag">Plataformas de Precisión</span>
-                    </div>
-                    <h4>Emberfall</h4>
-                    <p class="lab-desc">Movimiento de precisión al estilo Celeste — salto de altura variable, deslizado
-                        y salto en pared, dash en ocho direcciones — sobre un gauntlet que lleva la cuenta exacta de
-                        cada una de tus muertes. Va a intentar matarte.</p>
-                    <ul class="lab-stack">
-                        <li>JavaScript</li>
-                        <li>Canvas 2D</li>
-                        <li>Paso fijo</li>
-                        <li>Física propia</li>
-                    </ul>
-                    <div class="lab-actions">
-                        <a href="/emberfall/" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Jugar</a>
-                        <a href="https://github.com/jorge-erdb/emberfall" class="btn btn-outline btn-sm">Código</a>
-                    </div>
-                </article>
-
-            </div>
-
-            <h3 class="lab-group-title"><i class="fas fa-chart-line"></i> Aplicación de Negocio</h3>
-            <div class="lab-featured">
-                <div class="lab-featured-info">
-                    <div class="lab-card-top">
-                        <span class="lab-icon"><i class="fas fa-chart-line"></i></span>
-                        <span class="lab-tag">Analítica SaaS</span>
-                    </div>
-                    <h4>Nova Analytics</h4>
-                    <p class="lab-desc">Plataforma de analítica whitelabel para dar seguimiento operativo a la empresa:
-                        landing pública, autenticación por correo y contraseña, y un dashboard que consume datos reales.
-                        Las fuentes de datos se conectan desde la propia interfaz, que emite una llave de API; los
-                        eventos enviados a esa llave viajan por una Edge Function, se consolidan y aparecen en las
-                        gráficas en segundos, sin recargar la página.</p>
-                    <ul class="lab-stack">
-                        <li>React 19</li>
-                        <li>Tailwind CSS</li>
-                        <li>Supabase</li>
-                        <li>React Query</li>
-                        <li>ApexCharts</li>
-                        <li>Vercel</li>
-                    </ul>
-                    <div class="lab-actions">
-                        <a href="https://horizon-tailwind-react-theta.vercel.app/" class="btn btn-primary btn-sm">Abrir
-                            Aplicación</a>
-                        <a href="https://github.com/jorge-erdb/horizon-tailwind-react"
-                            class="btn btn-outline btn-sm">Código</a>
-                    </div>
-                    <p class="lab-note"><i class="fas fa-circle-info"></i> Requiere crear una cuenta gratuita. El
-                        dashboard abre con datos de demostración ya cargados.</p>
+                    <ol class="timeline">
+                        <li class="timeline-item">
+                            <span class="timeline-tag tag-now" data-i18n="tl.now">Ahora</span>
+                            <h3>AI Agent Engineer</h3>
+                            <p data-i18n="tl.nowDesc">Desarrollo de sistemas con agentes de IA.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-tag tag-now" data-i18n="tl.inProgress">En curso</span>
+                            <h3 data-i18n="tl.masters">Maestría</h3>
+                            <p data-i18n="tl.mastersDesc">El Laboratorio de este sitio es el proyecto final de uno de
+                                sus cursos.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-tag" data-i18n="tl.founder">Fundador</span>
+                            <h3>HorizonTec</h3>
+                            <p data-i18n="tl.founderDesc">Mi emprendimiento de soluciones digitales para PyMEs. Lo
+                                dirijo y opero yo solo.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-tag" data-i18n="tl.degree">Titulado</span>
+                            <h3 data-i18n="tl.degreeTitle">Ingeniería en Sistemas Computacionales</h3>
+                            <p data-i18n="tl.degreeDesc">Evaluación de credenciales en EE. UU. en proceso.</p>
+                        </li>
+                        <li class="timeline-item timeline-next">
+                            <span class="timeline-tag tag-next" data-i18n="tl.next">Siguiente</span>
+                            <h3 data-i18n="tl.security">Ciberseguridad</h3>
+                            <p data-i18n="tl.securityDesc">Pruebas de penetración y análisis forense digital.</p>
+                        </li>
+                    </ol>
                 </div>
-                <div class="lab-featured-visual">
-                    <div class="mockup-container">
+            </div>
+        </section>
+
+        <!-- Laboratorio Section -->
+        <section id="laboratorio" class="section lab">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow">02 / <span data-i18n="lab.eyebrow">laboratorio</span></p>
+                    <h2 class="section-title" data-i18n="lab.title">Laboratorio</h2>
+                    <p class="section-subtitle" data-i18n="lab.subtitle">Proyecto final de un curso de maestría —
+                        desarrollo asistido por IA</p>
+                </header>
+                <p class="lab-intro" data-i18n="lab.intro">Cuatro aplicaciones construidas de principio a fin con
+                    asistencia de modelos de lenguaje: tres videojuegos que exploran los límites del navegador sin
+                    motores ni dependencias, y una plataforma de analítica pensada para operar dentro de la empresa.</p>
+                <p class="lab-attribution"><i class="fas fa-microchip"></i> <span data-i18n="lab.attribution">Desarrollado
+                        con asistencia de IA — Claude, Qwen y Gemma</span></p>
+
+                <h3 class="lab-group-title"><i class="fas fa-gamepad"></i> <span data-i18n="lab.games">Videojuegos</span>
+                </h3>
+                <div class="lab-grid">
+
+                    <article class="card lab-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-crosshairs"></i></span>
+                            <span class="tag" data-i18n="lab.abyss.tag">Bullet Hell Roguelite</span>
+                        </div>
+                        <h4>Abyss Engine</h4>
+                        <p class="card-desc" data-i18n="lab.abyss.desc">Desciende por una mazmorra generada
+                            proceduralmente y derrota al jefe que guarda cada piso para abrir el camino hacia abajo.
+                            Diez mejoras que se draftean de tres en tres al subir de nivel, tres tipos de enemigo y una
+                            dificultad que nunca deja de escalar.</p>
+                        <ul class="stack">
+                            <li>JavaScript</li>
+                            <li>Canvas 2D</li>
+                            <li>Web Audio</li>
+                            <li data-i18n="lab.noDeps">Sin dependencias</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/abyss-engine/" class="btn btn-primary btn-sm" target="_blank" rel="noopener"
+                                data-i18n="lab.play">Jugar</a>
+                            <a href="https://github.com/jorge-erdb/abyss-engine" class="btn btn-outline btn-sm"
+                                data-i18n="lab.code">Código</a>
+                        </div>
+                    </article>
+
+                    <article class="card lab-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-bug"></i></span>
+                            <span class="tag" data-i18n="lab.bug.tag">Plataformas Vertical</span>
+                        </div>
+                        <h4>Bug Free</h4>
+                        <p class="card-desc" data-i18n="lab.bug.desc">Un juego sobre <em>vibe coding</em>: eres un
+                            LLM escalando desde un archivo vacío hasta una app desplegada, y los bugs te matan. Incluye
+                            modo campaña por niveles y modo infinito, con controles táctiles para jugar desde el
+                            teléfono.</p>
+                        <ul class="stack">
+                            <li>ES Modules</li>
+                            <li>Canvas 2D</li>
+                            <li data-i18n="lab.touch">Táctil</li>
+                            <li data-i18n="lab.testSuite">Suite de pruebas</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/bug-free/" class="btn btn-primary btn-sm" target="_blank" rel="noopener"
+                                data-i18n="lab.play">Jugar</a>
+                            <a href="https://github.com/jorge-erdb/bug-free" class="btn btn-outline btn-sm"
+                                data-i18n="lab.code">Código</a>
+                        </div>
+                    </article>
+
+                    <article class="card lab-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-fire"></i></span>
+                            <span class="tag" data-i18n="lab.ember.tag">Plataformas de Precisión</span>
+                        </div>
+                        <h4>Emberfall</h4>
+                        <p class="card-desc" data-i18n="lab.ember.desc">Movimiento de precisión al estilo Celeste —
+                            salto de altura variable, deslizado y salto en pared, dash en ocho direcciones — sobre un
+                            gauntlet que lleva la cuenta exacta de cada una de tus muertes. Va a intentar matarte.</p>
+                        <ul class="stack">
+                            <li>JavaScript</li>
+                            <li>Canvas 2D</li>
+                            <li data-i18n="lab.fixedStep">Paso fijo</li>
+                            <li data-i18n="lab.customPhysics">Física propia</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/emberfall/" class="btn btn-primary btn-sm" target="_blank" rel="noopener"
+                                data-i18n="lab.play">Jugar</a>
+                            <a href="https://github.com/jorge-erdb/emberfall" class="btn btn-outline btn-sm"
+                                data-i18n="lab.code">Código</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <h3 class="lab-group-title"><i class="fas fa-chart-line"></i> <span data-i18n="lab.business">Aplicación
+                        de Negocio</span></h3>
+                <article class="card lab-featured">
+                    <div class="lab-featured-info">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-chart-line"></i></span>
+                            <span class="tag" data-i18n="lab.nova.tag">Analítica SaaS</span>
+                        </div>
+                        <h4>Nova Analytics</h4>
+                        <p class="card-desc" data-i18n="lab.nova.desc">Plataforma de analítica whitelabel para dar
+                            seguimiento operativo a la empresa: landing pública, autenticación por correo y contraseña,
+                            y un dashboard que consume datos reales. Las fuentes de datos se conectan desde la propia
+                            interfaz, que emite una llave de API; los eventos enviados a esa llave viajan por una Edge
+                            Function, se consolidan y aparecen en las gráficas en segundos, sin recargar la página.</p>
+                        <ul class="stack">
+                            <li>React 19</li>
+                            <li>Tailwind CSS</li>
+                            <li>Supabase</li>
+                            <li>React Query</li>
+                            <li>ApexCharts</li>
+                            <li>Vercel</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="https://horizon-tailwind-react-theta.vercel.app/" class="btn btn-primary btn-sm"
+                                data-i18n="lab.openApp">Abrir Aplicación</a>
+                            <a href="https://github.com/jorge-erdb/horizon-tailwind-react"
+                                class="btn btn-outline btn-sm" data-i18n="lab.code">Código</a>
+                        </div>
+                        <p class="card-note"><i class="fas fa-circle-info"></i> <span data-i18n="lab.nova.note">Requiere
+                                crear una cuenta gratuita. El dashboard abre con datos de demostración ya
+                                cargados.</span></p>
+                    </div>
+                    <div class="lab-featured-visual" aria-hidden="true">
                         <i class="fas fa-chart-pie"></i>
                     </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Ciberseguridad Section -->
+        <section id="ciberseguridad" class="section security">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow">03 / <span data-i18n="sec.eyebrow">ciberseguridad</span></p>
+                    <h2 class="section-title" data-i18n="sec.title">Ciberseguridad</h2>
+                    <p class="section-subtitle" data-i18n="sec.subtitle">En formación — hacia dónde voy y cómo lo
+                        estoy construyendo</p>
+                </header>
+
+                <div class="security-grid">
+                    <article class="card security-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-user-secret"></i></span>
+                            <span class="status" data-i18n="sec.statusLearning">Aprendiendo</span>
+                        </div>
+                        <h4 data-i18n="sec.pentest.title">Pruebas de penetración</h4>
+                        <p class="card-desc" data-i18n="sec.pentest.desc">Mi objetivo principal. Practico en entornos
+                            controlados con los retos de TryHackMe, construyendo las bases paso a paso.</p>
+                    </article>
+
+                    <article class="card security-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-fingerprint"></i></span>
+                            <span class="status" data-i18n="sec.statusLearning">Aprendiendo</span>
+                        </div>
+                        <h4 data-i18n="sec.forensics.title">Análisis forense digital</h4>
+                        <p class="card-desc" data-i18n="sec.forensics.desc">Mi segundo enfoque: entender qué pasó en un
+                            sistema a partir de la evidencia que deja.</p>
+                    </article>
+
+                    <article class="card security-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fab fa-rust"></i></span>
+                            <span class="status" data-i18n="sec.statusInProgress">En progreso</span>
+                        </div>
+                        <h4>Rust</h4>
+                        <p class="card-desc" data-i18n="sec.rust.desc">Lenguaje de sistemas con seguridad de memoria.
+                            Estoy trabajando en varios proyectos propios, por ahora locales.</p>
+                    </article>
+                </div>
+
+                <p class="security-note" data-i18n="sec.note">Mi experiencia construyendo software, desde agentes de
+                    IA hasta aplicaciones completas, es el punto de partida: quiero entender cómo se rompen los
+                    sistemas que antes solo construía.</p>
+            </div>
+        </section>
+
+        <!-- Proyectos Section -->
+        <section id="proyectos" class="section projects">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow">04 / <span data-i18n="proj.eyebrow">proyectos</span></p>
+                    <h2 class="section-title" data-i18n="proj.title">Proyectos y Emprendimiento</h2>
+                </header>
+
+                <h3 class="lab-group-title"><i class="fas fa-robot"></i> <span data-i18n="proj.agents">Agentes de
+                        IA</span></h3>
+                <div class="projects-grid grid-2">
+                    <article class="card project-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-terminal"></i></span>
+                            <span class="tag" data-i18n="proj.pyagent.tag">Agente con herramientas</span>
+                        </div>
+                        <h4>Py Agent</h4>
+                        <p class="card-desc" data-i18n="proj.pyagent.desc">Agente de IA en Python con interfaz web:
+                            razona en ciclo, llama herramientas, lee y escribe archivos y ejecuta comandos de shell.
+                            Funciona con cualquier servidor compatible con la API de OpenAI, local o en la nube, y
+                            corre aislado en un contenedor Docker sin privilegios.</p>
+                        <ul class="stack">
+                            <li>Python</li>
+                            <li>FastAPI</li>
+                            <li>SQLite</li>
+                            <li>OpenAI API</li>
+                            <li>Docker</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="https://github.com/jorge-erdb/py_agent" class="btn btn-outline btn-sm"
+                                data-i18n="lab.code">Código</a>
+                        </div>
+                    </article>
+
+                    <article class="card project-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-brain"></i></span>
+                            <span class="status" data-i18n="proj.brain.status">En desarrollo</span>
+                        </div>
+                        <h4>Second Brain</h4>
+                        <p class="card-desc" data-i18n="proj.brain.desc">Un segundo cerebro local: notas en Markdown
+                            como fuente de verdad, indexadas en SQLite con búsqueda de texto completo y sin base de
+                            datos vectorial. Un LLM local busca, cita y, solo con permiso explícito, edita las notas a
+                            través de herramientas; cada cambio queda versionado en git.</p>
+                        <ul class="stack">
+                            <li>Python</li>
+                            <li>FastAPI</li>
+                            <li>SQLite FTS5</li>
+                            <li>Svelte</li>
+                            <li>TypeScript</li>
+                            <li>llama.cpp</li>
+                        </ul>
+                        <p class="card-note"><i class="fas fa-lock"></i> <span data-i18n="proj.brain.note">Proyecto
+                                privado; código aún no publicado.</span></p>
+                    </article>
+                </div>
+
+                <h3 class="lab-group-title"><i class="fas fa-briefcase"></i> <span data-i18n="proj.ventures">Emprendimiento
+                        y freelance</span></h3>
+                <div class="projects-grid">
+                    <article class="card project-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-building"></i></span>
+                            <span class="status" data-i18n="proj.horizon.status">Fundador</span>
+                        </div>
+                        <h4>HorizonTec</h4>
+                        <p class="card-desc" data-i18n="proj.horizon.desc">Mi empresa de soluciones digitales para
+                            PyMEs: digitalización de documentos, automatización de procesos y seguridad de la
+                            información. La dirijo y opero de principio a fin.</p>
+                        <div class="card-actions">
+                            <a href="https://horizontec.mx/" class="btn btn-primary btn-sm"
+                                data-i18n="proj.horizon.cta">Visitar horizontec.mx</a>
+                        </div>
+                    </article>
+
+                    <article class="card project-card">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-laptop-code"></i></span>
+                            <span class="status" data-i18n="proj.freelance.status">Disponible</span>
+                        </div>
+                        <h4 data-i18n="proj.freelance.title">Desarrollo Freelance</h4>
+                        <p class="card-desc" data-i18n="proj.freelance.desc">Sitios y aplicaciones web a medida,
+                            responsive y optimizados para SEO, con código propio o con web builders profesionales.</p>
+                        <div class="card-actions">
+                            <a href="galeria/index.html" class="btn btn-outline btn-sm"
+                                data-i18n="proj.freelance.gallery">Galería de Estilos</a>
+                            <a href="https://es.fiverr.com/s/vvaLgX1" class="btn btn-outline btn-sm">Fiverr</a>
+                            <a href="https://www.upwork.com/freelancers/~01751425cee568ae92?mp_source=share"
+                                class="btn btn-outline btn-sm">Upwork</a>
+                        </div>
+                    </article>
+
+                    <article class="card project-card project-paused">
+                        <div class="card-top">
+                            <span class="card-icon"><i class="fas fa-magnifying-glass"></i></span>
+                            <span class="status status-paused" data-i18n="proj.exdi.status">En pausa</span>
+                        </div>
+                        <h4>Extensionistas Digitales</h4>
+                        <p class="card-desc" data-i18n="proj.exdi.desc">Consultoría de digitalización para PyMEs:
+                            diagnóstico y mapa de ruta de transformación digital. Mi rol: estratega de marketing
+                            digital.</p>
+                        <div class="card-actions">
+                            <a href="https://www.exdi.mx/" class="btn btn-outline btn-sm"
+                                data-i18n="proj.exdi.cta">Visitar exdi.mx</a>
+                        </div>
+                    </article>
                 </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <!-- Contact Section -->
+        <section id="contacto" class="section contact">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow">05 / <span data-i18n="contact.eyebrow">contacto</span></p>
+                    <h2 class="section-title" data-i18n="contact.title">Hablemos</h2>
+                </header>
 
-    <!-- Servicios Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <h2 class="section-title">Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Desarrollo Web</h3>
-                    <p>Sitios web profesionales y aplicaciones personalizadas</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Consultoría Digital</h3>
-                    <p>Estrategias de digitalización para PyMEs</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Diseño Responsive</h3>
-                    <p>Experiencias optimizadas para todos los dispositivos</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Seguridad Digital</h3>
-                    <p>Protección de datos e información empresarial</p>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <a class="contact-item" href="mailto:jerdmanndb@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>jerdmanndb@gmail.com</p>
+                            </div>
+                        </a>
+                        <div class="contact-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <h3 data-i18n="contact.location">Ubicación</h3>
+                                <p>Saltillo, Coahuila, México</p>
+                            </div>
+                        </div>
+
+                        <div class="social-grid">
+                            <a href="https://github.com/jorge-erdb" class="social-link">
+                                <i class="fab fa-github"></i><span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jorge-erdmann-diaz-barreiro" class="social-link">
+                                <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/jor_erdmann/" class="social-link">
+                                <i class="fab fa-instagram"></i><span>Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61576966191034" class="social-link">
+                                <i class="fab fa-facebook"></i><span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form class="card contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre" data-i18n-placeholder="form.name"
+                                aria-label="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="proyecto" aria-label="Proyecto" required>
+                                <option value="" data-i18n="form.select">Selecciona un proyecto</option>
+                                <option value="freelance" data-i18n="form.freelance">Desarrollo Web Freelance</option>
+                                <option value="horizontes">Horizontes Tecnológicos</option>
+                                <option value="extensionistas">Extensionistas Digitales</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="mensaje" placeholder="Mensaje" data-i18n-placeholder="form.message"
+                                aria-label="Mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="form.send">Enviar Mensaje</button>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sobre Mí Section -->
-    <section id="sobre-mi" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Sobre Mí</h2>
-                    <p>Estudiante de Ingeniería en Sistemas Computacionales con experiencia práctica en atención al
-                        cliente y desarrollo web. Especializado en la transformación digital de PyMEs mexicanas.</p>
-                    <div class="skills">
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>HTML, CSS, JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>SQL, Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-users"></i>
-                            <span>Atención al Cliente</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-language"></i>
-                            <span>Español, Inglés</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Hub -->
-    <section class="social-hub">
-        <div class="container">
-            <h2 class="section-title">Conecta Conmigo</h2>
-            <div class="social-grid">
-                <a href="https://www.linkedin.com/in/jorge-erdmann-diaz-barreiro" class="social-card linkedin">
-                    <i class="fab fa-linkedin"></i>
-                    <div class="social-info">
-                        <h3>LinkedIn</h3>
-                        <p>Contenido profesional y networking</p>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/jor_erdmann/" class="social-card instagram">
-                    <i class="fab fa-instagram"></i>
-                    <div class="social-info">
-                        <h3>Instagram</h3>
-                        <p>Behind the scenes y proyectos visuales</p>
-                    </div>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61576966191034" class="social-card facebook">
-                    <i class="fab fa-facebook"></i>
-                    <div class="social-info">
-                        <h3>Facebook</h3>
-                        <p>Engagement con PyMEs locales</p>
-                    </div>
-                </a>
-                <a href="#" title="Próximamente" class="social-card tiktok">
-                    <i class="fab fa-tiktok"></i>
-                    <div class="social-info">
-                        <h3>TikTok</h3>
-                        <p>Educación digital de forma dinámica</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>jerdmanndb@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Teléfono</h3>
-                            <p>844 444 9748</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Ubicación</h3>
-                            <p>Saltillo, Coahuila, México</p>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="nombre" placeholder="Nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <select name="proyecto" required>
-                            <option value="">Selecciona un proyecto</option>
-                            <option value="freelance">Desarrollo Web Freelance</option>
-                            <option value="horizontes">Horizontes Tecnológicos</option>
-                            <option value="extensionistas">Extensionistas Digitales</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Jorge Erdmann</h3>
-                    <p>Transformando ideas en soluciones digitales</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Proyectos</h4>
-                    <ul>
-                        <li><a href="#freelance">Desarrollo Freelance</a></li>
-                        <li><a href="#laboratorio">Laboratorio</a></li>
-                        <li><a href="https://horizontec.mx/">Horizontes Tecnológicos</a></li>
-                        <li><a href="https://www.exdi.mx/">Extensionistas Digitales</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li>jerdmanndb@gmail.com</li>
-                        <li>844 444 9748</li>
-                        <li>Saltillo, Coahuila, México</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Sígueme</h4>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/jorge-erdmann-diaz-barreiro"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/jor_erdmann/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61576966191034"><i
-                                class="fab fa-facebook"></i></a>
-                        <a href="#" title="Próximamente"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="nav-logo-name">Jorge Erdmann</span>
+                <p data-i18n="footer.tagline">Desarrollo, IA y ciberseguridad.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Jorge Erdmann. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#sobre-mi" data-i18n="nav.about">Sobre Mí</a>
+                <a href="#laboratorio" data-i18n="nav.lab">Laboratorio</a>
+                <a href="#ciberseguridad" data-i18n="nav.security">Ciberseguridad</a>
+                <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+                <a href="#contacto" data-i18n="nav.contact">Contacto</a>
             </div>
+            <div class="footer-social">
+                <a href="https://github.com/jorge-erdb" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jorge-erdmann-diaz-barreiro" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/jor_erdmann/" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61576966191034" aria-label="Facebook"><i
+                        class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Jorge Erdmann. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="scripts.js"></script>
 </body>
 
